@@ -130,10 +130,6 @@
             <a href="./documents.html">${labels.publications}</a>
             <a href="./documents.html#risk">${labels.contact}</a>
           </nav>
-          <div class="lang-switch" role="group" aria-label="Language">
-            <button type="button" data-lang="en" aria-pressed="${lang === "en"}">EN</button>
-            <button type="button" data-lang="zh" aria-pressed="${lang === "zh"}">中文</button>
-          </div>
           <form class="search-form" role="search">
             <label for="site-search" class="sr-only">${labels.search}</label>
             <input id="site-search" type="search" placeholder="${labels.search}" />
@@ -249,6 +245,11 @@
           <a href="mailto:${esc(value("devEmail"))}">${labels.developer}</a>
           <a href="./documents.html#risk">${labels.riskNotice}</a>
         </nav>
+        <div class="footer-language" role="group" aria-label="Language">
+          <span>Language:</span>
+          <button type="button" data-lang="en" aria-pressed="${lang === "en"}">EN</button>
+          <button type="button" data-lang="zh" aria-pressed="${lang === "zh"}">中文</button>
+        </div>
       </div>
     </footer>
   `;
