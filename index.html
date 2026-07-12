@@ -15,12 +15,12 @@
     <div class="official-banner" role="note">
       <div class="page-shell banner-inner">
         <span class="mini-mark" aria-hidden="true"></span>
-        <span>DefiShares official information portal</span>
-        <button class="banner-toggle" type="button" aria-expanded="false" aria-controls="banner-details">
+        <span data-i18n="portal">DefiShares official information portal</span>
+        <button class="banner-toggle" type="button" aria-expanded="false" aria-controls="banner-details" data-i18n="how">
           Here's how you know
         </button>
       </div>
-      <div class="page-shell banner-details" id="banner-details" hidden>
+      <div class="page-shell banner-details" id="banner-details" hidden data-i18n="banner">
         Use links from this website to access the official wallet, explorer, documents, and community channels.
         DefiShares will never ask for your private key, seed phrase, or wallet password.
       </div>
@@ -30,15 +30,19 @@
       <div class="utility-bar">
         <div class="page-shell utility-inner">
           <nav aria-label="Utility navigation">
-            <a href="#status">Network Status</a>
-            <a href="./airdrop.html">Airdrop</a>
-            <a href="./documents.html">Publications</a>
-            <a href="#community">Contact</a>
+            <a href="#status" data-i18n="networkStatus">Network Status</a>
+            <a href="./airdrop.html" data-i18n="airdrop">Airdrop</a>
+            <a href="./documents.html" data-i18n="publications">Publications</a>
+            <a href="#community" data-i18n="contact">Contact</a>
           </nav>
+          <div class="lang-switch" role="group" aria-label="Language">
+            <button type="button" data-lang="en">EN</button>
+            <button type="button" data-lang="zh">中文</button>
+          </div>
           <form class="search-form" role="search">
             <label for="site-search" class="sr-only">Search</label>
-            <input id="site-search" type="search" placeholder="Search" />
-            <button type="submit">Search</button>
+            <input id="site-search" type="search" placeholder="Search" data-i18n-placeholder="search" />
+            <button type="submit" data-i18n="search">Search</button>
           </form>
         </div>
       </div>
@@ -48,8 +52,8 @@
           <img src="./assets/defishares-seal.png" alt="DefiShares seal" class="seal" />
           <div>
             <p class="eyebrow">DefiShares</p>
-            <h1>DefiShares Asset Network</h1>
-            <p class="tagline">
+            <h1 data-i18n="mastheadTitle">DefiShares Asset Network</h1>
+            <p class="tagline" data-i18n="tagline">
               A Graphene-based DeFi asset network with DFS as the core asset and GOLD as the protocol pricing anchor.
             </p>
           </div>
@@ -58,14 +62,14 @@
 
       <nav class="primary-nav" aria-label="Primary navigation">
         <div class="page-shell nav-grid">
-          <a href="./about.html">About</a>
-          <a href="./features.html">Features</a>
-          <a href="./gold.html">GOLD Model</a>
-          <a href="#" data-link="walletUrl">Wallet</a>
-          <a href="#" data-link="explorerUrl">Explorer</a>
-          <a href="./airdrop.html">Airdrop</a>
-          <a href="./developers.html">Developers</a>
-          <a href="./documents.html">Documents</a>
+          <a href="./about.html" data-i18n="navAbout">About</a>
+          <a href="./features.html" data-i18n="navFeatures">Features</a>
+          <a href="./gold.html" data-i18n="navGold">GOLD Model</a>
+          <a href="#" data-link="walletUrl" data-i18n="navWallet">Wallet</a>
+          <a href="#" data-link="explorerUrl" data-i18n="navExplorer">Explorer</a>
+          <a href="./airdrop.html" data-i18n="navAirdrop">Airdrop</a>
+          <a href="./developers.html" data-i18n="navDevelopers">Developers</a>
+          <a href="./documents.html" data-i18n="navDocuments">Documents</a>
         </div>
       </nav>
     </header>
@@ -74,19 +78,19 @@
       <section class="status-strip" id="status" aria-label="Chain snapshot">
         <div class="page-shell status-grid">
           <article>
-            <span>Network</span>
+            <span data-i18n="networkStatus">Network</span>
             <strong data-config="networkStatus">Public Testnet</strong>
           </article>
           <article>
-            <span>Core Asset</span>
+            <span data-i18n="coreAsset">Core Asset</span>
             <strong data-config="coreAsset">DFS</strong>
           </article>
           <article>
-            <span>Default Market</span>
+            <span data-i18n="defaultMarket">Default Market</span>
             <strong data-config="defaultMarket">GOLD_DFS</strong>
           </article>
           <article>
-            <span>Block Interval</span>
+            <span data-i18n="blockInterval">Block Interval</span>
             <strong data-config="blockInterval">3 seconds</strong>
           </article>
         </div>
@@ -94,36 +98,36 @@
 
       <section class="page-shell hero-section" id="about">
         <div class="hero-copy">
-          <p class="section-kicker">Official Project Overview</p>
-          <h2>DFS-backed assets, GOLD-centered pricing, and official access to the DefiShares ecosystem.</h2>
-          <p>
+          <p class="section-kicker" data-i18n="officialProjectOverview">Official Project Overview</p>
+          <h2 data-i18n="heroTitle">DFS-backed assets, GOLD-centered pricing, and official access to the DefiShares ecosystem.</h2>
+          <p data-i18n="heroBody">
             DefiShares is an independent blockchain forked from the BitShares / Graphene technology stack.
             It provides a public gateway for wallet access, chain data, project documents, airdrop information,
             and technical references around DFS and DefiShares-managed smart assets.
           </p>
           <div class="action-row">
-            <a class="button primary" href="#" data-link="walletUrl">Open Web Wallet</a>
-            <a class="button secondary" href="#" data-link="explorerUrl">View Explorer</a>
-            <a class="button tertiary" href="./about.html">About DefiShares</a>
+            <a class="button primary" href="#" data-link="walletUrl" data-i18n="openWebWallet">Open Web Wallet</a>
+            <a class="button secondary" href="#" data-link="explorerUrl" data-i18n="viewExplorer">View Explorer</a>
+            <a class="button tertiary" href="./about.html" data-i18n="aboutDefishares">About DefiShares</a>
           </div>
         </div>
         <aside class="official-card">
-          <h3>At a glance</h3>
+          <h3 data-i18n="atAGlance">At a glance</h3>
           <dl>
             <div>
-              <dt>Address Prefix</dt>
+              <dt data-i18n="addressPrefix">Address Prefix</dt>
               <dd data-config="addressPrefix">DFS</dd>
             </div>
             <div>
-              <dt>Public RPC</dt>
+              <dt data-i18n="publicRpc">Public RPC</dt>
               <dd><code data-config="rpcUrl">wss://api.defishares.org/ws/</code></dd>
             </div>
             <div>
-              <dt>Airdrop</dt>
+              <dt data-i18n="airdrop">Airdrop</dt>
               <dd data-config="airdropStatus">Rules pending</dd>
             </div>
             <div>
-              <dt>Updated</dt>
+              <dt data-i18n="updated">Updated</dt>
               <dd data-config="lastUpdated">2026-07-11</dd>
             </div>
           </dl>
@@ -291,20 +295,20 @@
       <div class="page-shell footer-grid">
         <div>
           <img src="./assets/defishares-seal.png" alt="" class="footer-seal" />
-          <p>DefiShares Official Information Portal</p>
+          <p data-i18n="footerPortal">DefiShares Official Information Portal</p>
         </div>
         <nav aria-label="Footer navigation">
-          <a href="#" data-link="walletUrl">Wallet</a>
-          <a href="#" data-link="explorerUrl">Explorer</a>
+          <a href="#" data-link="walletUrl" data-i18n="navWallet">Wallet</a>
+          <a href="#" data-link="explorerUrl" data-i18n="navExplorer">Explorer</a>
           <a href="#" data-link="githubUrl">GitHub</a>
-          <a href="mailto:contact@defishares.org">Contact</a>
-          <a href="mailto:dev@defishares.org">Developer</a>
-          <a href="./documents.html#risk">Risk Notice</a>
+          <a href="mailto:contact@defishares.org" data-i18n="contact">Contact</a>
+          <a href="mailto:dev@defishares.org" data-i18n="developer">Developer</a>
+          <a href="./documents.html#risk" data-i18n="riskNotice">Risk Notice</a>
         </nav>
       </div>
     </footer>
 
-    <script src="./site-config.js"></script>
-    <script src="./script.js"></script>
+    <script src="./site-config.js?v=2"></script>
+    <script src="./script.js?v=2"></script>
   </body>
 </html>

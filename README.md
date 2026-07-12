@@ -11,6 +11,7 @@ Static official-information website for DefiShares, styled after a restrained U.
 - `script.js` - tabs, banner disclosure, search, config injection, and RPC copy behavior.
 - `site-config.js` - confirmed project links and network labels.
 - `pages-data.js` and `render-page.js` - shared second-level page content and renderer.
+- Multilingual support is available through `?lang=en`, `?lang=zh`, and the EN/中文 switch in the header. The selected language is stored in `localStorage`.
 - `assets/defishares-seal.png` - local DefiShares seal image.
 
 ## Update Confirmed Links

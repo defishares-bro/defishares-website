@@ -247,3 +247,249 @@ window.DEFI_PAGES = {
     ]
   }
 };
+
+window.DEFI_PAGES_I18N = {
+  en: window.DEFI_PAGES,
+  zh: {
+    features: {
+      title: "特性",
+      description: "DefiShares 官方特性概览。",
+      visualTitle: "网络特性",
+      visualSubtitle: "DFS、GOLD、钱包、浏览器与生态工具",
+      introLead: "DefiShares 被组织为网络核心功能的官方信息与访问门户。",
+      intro:
+        "本站以统一的机构式结构呈现项目特性，让用户可以在项目概览、钱包访问、浏览器查询、文档与空投信息之间保持一致的上下文。",
+      bullets: [
+        "DFS 核心资产与 DFS 地址前缀构成链身份；",
+        "面向 DefiShares 管理型智能资产的 GOLD-centered 策略；",
+        "官方 Web 钱包入口支持账户与转账流程；",
+        "公共浏览器用于查询区块、交易、账户和资产；",
+        "提供项目公告、政策参考和空投状态文档。"
+      ],
+      directoryTitle: "特性栏目",
+      directory: [
+        ["DFS 核心资产", "网络符号、地址前缀、手续费、转账和市场身份。"],
+        ["GOLD 模型", "面向管理型智能资产的协议级喂价路径和抵押策略。"],
+        ["钱包访问", "面向用户的官方本地签名钱包入口。"],
+        ["浏览器记录", "链上活动和分发记录的公共验证入口。"],
+        ["空投公告", "最终确认后的分配、资格、快照和领取状态。"],
+        ["文档", "官方发布、政策说明和项目参考资料。"]
+      ],
+      operationsTitle: "当前特性状态",
+      operations:
+        "官网应根据已确认的网络状态展示功能。仍待最终运营输入的功能，应标记为 pending 或 rules pending，而不是展示为已上线。",
+      facts: [
+        ["网络", "networkStatus"],
+        ["核心资产", "coreAsset"],
+        ["默认市场", "defaultMarket"],
+        ["出块间隔", "blockInterval"]
+      ]
+    },
+    gold: {
+      title: "GOLD 模型",
+      description: "DefiShares GOLD-centered 喂价与智能资产策略。",
+      visualTitle: "GOLD 策略",
+      visualSubtitle: "管理型智能资产的协议定价锚点",
+      introLead: "DefiShares 使用 GOLD 作为管理型 DFS-backed 智能资产的协议级喂价锚点。",
+      intro:
+        "非 GOLD 的管理型 bitassets 由见证人发布 TARGET/GOLD，链上逻辑再推导有效的 TARGET/DFS current_feed。本页说明公开口径下的策略结构，不把该机制包装为投资承诺。",
+      bullets: [
+        "GOLD 是 DefiShares 管理型 bitassets 的路由资产；",
+        "GOLD/DFS 价格由链上策略生成，而不是普通的见证人直接发布；",
+        "非 GOLD 管理型资产发布 TARGET/GOLD 源喂价；",
+        "有效 TARGET/DFS 由链上推导，并作为 current_feed 使用；",
+        "管理型 bitassets 使用固定初始抵押率策略。"
+      ],
+      directoryTitle: "策略参考",
+      directory: [
+        ["喂价锚点", "GOLD 是管理型智能资产定价的共同路径。"],
+        ["TARGET/GOLD", "非 GOLD 管理型 DFS-backed 资产的见证人源格式。"],
+        ["TARGET/DFS", "链上为债务和抵押逻辑推导出的有效喂价。"],
+        ["抵押策略", "DefiShares 管理型智能资产的固定 ICR 策略。"],
+        ["风险边界", "Settlement 和 liquidation 规则不同于上游行为。"],
+        ["技术文档", "详见 DefiShares Smartcoin Feed and Risk Policy。"]
+      ],
+      operationsTitle: "重要公开说明",
+      operations:
+        "除非项目存在单独且经过法律验证的兑付或储备安排，GOLD 应描述为协议策略锚点。官网不应暗示实物黄金兑付。",
+      facts: [
+        ["核心资产", "coreAsset"],
+        ["默认市场", "defaultMarket"],
+        ["公共 RPC", "rpcUrl"],
+        ["网络", "networkStatus"]
+      ]
+    },
+    wallet: {
+      title: "钱包",
+      description: "DefiShares 官方钱包访问页。",
+      visualTitle: "Web 钱包",
+      visualSubtitle: "官方本地签名访问入口",
+      introLead: "DefiShares Web 钱包是用户访问账户和资产操作的官方入口。",
+      intro:
+        "钱包页以官方访问页的方式组织：用户应能识别正确的钱包链接，理解本地签名安全模型，并在完成交易后前往浏览器验证状态。",
+      bullets: [
+        "通过官方钱包入口创建或导入钱包；",
+        "查看 DFS 和支持资产余额；",
+        "发送和接收资产；",
+        "交易在本地签名后再广播；",
+        "通过浏览器验证交易状态。"
+      ],
+      directoryTitle: "钱包功能",
+      directory: [
+        ["打开钱包", "进入已确认的 Web 钱包 URL。"],
+        ["账户访问", "创建、导入、解锁和管理钱包账户。"],
+        ["转账", "发送和接收 DFS 及支持资产。"],
+        ["市场访问", "查看默认 GOLD_DFS 市场和相关资产。"],
+        ["本地安全", "私钥和助记词不应提交到任何网站。"],
+        ["浏览器验证", "使用公共浏览器确认交易状态。"]
+      ],
+      operationsTitle: "安全提醒",
+      operations:
+        "官网绝不应要求用户输入私钥、助记词或钱包密码。钱包访问必须使用已确认的钱包 URL。",
+      facts: [
+        ["钱包 URL", "walletUrl"],
+        ["地址前缀", "addressPrefix"],
+        ["核心资产", "coreAsset"],
+        ["浏览器", "explorerUrl"]
+      ]
+    },
+    explorer: {
+      title: "浏览器",
+      description: "DefiShares 官方区块链浏览器页面。",
+      visualTitle: "链上浏览器",
+      visualSubtitle: "公共链上记录与查询",
+      introLead: "DefiShares Explorer 是链上活动的官方公共查询入口。",
+      intro:
+        "机构式页面应说明哪些内容可以被验证，以及用户应前往哪里查看权威记录。浏览器用于查看区块、交易、账户、资产和分发记录。",
+      bullets: [
+        "查询最新区块和区块详情；",
+        "检查交易和操作类型；",
+        "查看账户余额和活动；",
+        "查看已发行资产、供应数据和市场记录；",
+        "在发布后验证空投或分发交易。"
+      ],
+      directoryTitle: "浏览器记录",
+      directory: [
+        ["区块", "高度、时间戳、见证人和包含操作。"],
+        ["交易", "交易 ID、操作详情、手续费和确认状态。"],
+        ["账户", "余额、权限和交易历史。"],
+        ["资产", "供应量、发行方、精度和市场发行资产状态。"],
+        ["市场", "交易对、订单活动和市场参考。"],
+        ["分发", "空投和分配记录发布后的查询入口。"]
+      ],
+      operationsTitle: "记录验证",
+      operations:
+        "用户应通过本站确认的浏览器 URL 验证交易和公共分发记录。截图或社区帖子不能替代链上记录。",
+      facts: [
+        ["浏览器 URL", "explorerUrl"],
+        ["网络", "networkStatus"],
+        ["核心资产", "coreAsset"],
+        ["出块间隔", "blockInterval"]
+      ]
+    },
+    airdrop: {
+      title: "空投",
+      description: "DefiShares 空投信息页面。",
+      visualTitle: "DFS 空投",
+      visualSubtitle: "规则、资格、领取与公共记录",
+      introLead: "DefiShares 空投页将在规则最终确认后发布官方分发规则。",
+      intro:
+        "本页沿用官方公告结构：在推广任何领取流程前，应清楚展示分配额度、资格、快照时间、领取窗口、分发账户和链上可验证记录。",
+      bullets: [
+        "说明总分配额度和合格参与群体；",
+        "发布快照时间和资格规则；",
+        "展示领取开始和结束时间；",
+        "说明是一次性发放还是分批释放；",
+        "在可用时链接分发记录或审计记录。"
+      ],
+      directoryTitle: "空投信息",
+      directory: [
+        ["分配额度", "空投总量及其与 DFS 供应量的关系。"],
+        ["资格", "账户、持仓、社区或生态资格规则。"],
+        ["快照", "用于确定资格的快照时间和范围。"],
+        ["领取窗口", "开始时间、结束时间和领取状态。"],
+        ["分发账户", "用于分发的官方账户。"],
+        ["记录", "浏览器链接、批次记录和审计摘要。"]
+      ],
+      operationsTitle: "领取安全",
+      operations:
+        "空投页面不得要求用户输入私钥、助记词或钱包密码。官方站点应在用户进入任何领取流程前先公布规则。",
+      facts: [
+        ["空投状态", "airdropStatus"],
+        ["网络", "networkStatus"],
+        ["浏览器", "explorerUrl"],
+        ["更新", "lastUpdated"]
+      ]
+    },
+    developers: {
+      title: "开发者",
+      description: "DefiShares 开发者与节点参考页面。",
+      visualTitle: "开发者资源",
+      visualSubtitle: "RPC、节点、文档与仓库参考",
+      introLead: "Developers 页面提供 DefiShares 集成所需的官方技术入口。",
+      intro:
+        "该页面采用机构式参考页结构：识别稳定的公共端点、实现文档和仓库链接，避免与宣传内容混杂。",
+      bullets: [
+        "连接公共 WebSocket RPC 端点；",
+        "部署前查看节点和链文档；",
+        "阅读 GOLD 喂价与风险策略文档；",
+        "通过确认的仓库验证源码和发布；",
+        "使用浏览器记录检查链上行为。"
+      ],
+      directoryTitle: "开发者参考",
+      directory: [
+        ["公共 RPC", "用于链访问的官方 WebSocket 端点。"],
+        ["核心仓库", "已确认的项目源码仓库。"],
+        ["节点软件", "Witness node 和 CLI wallet 参考。"],
+        ["钱包 UI", "DefiShares UI fork 和浏览器钱包配置。"],
+        ["策略文档", "智能资产喂价和风险策略文档。"],
+        ["浏览器", "用于开发和测试的公共记录检查入口。"]
+      ],
+      operationsTitle: "实现说明",
+      operations:
+        "技术文档应说明引用适用于主网、测试网、本地开发还是未来计划部署。公开链接应保持版本化和可验证。",
+      facts: [
+        ["RPC 端点", "rpcUrl"],
+        ["GitHub", "githubUrl"],
+        ["开发者邮箱", "devEmail"],
+        ["网络", "networkStatus"],
+        ["出块间隔", "blockInterval"]
+      ]
+    },
+    documents: {
+      title: "文档",
+      description: "DefiShares 文档、发布和公告。",
+      visualTitle: "公开文档",
+      visualSubtitle: "官方文档和风险提示",
+      introLead: "Documents 页面是 DefiShares 的官方发布索引。",
+      intro:
+        "按照机构式结构，文档按用途分组：项目规划、技术策略、官网内容清单以及风险或免责声明材料。",
+      bullets: [
+        "发布项目官网规划参考；",
+        "链接 GOLD 和智能资产技术策略文档；",
+        "维护剩余内容输入清单；",
+        "包含风险提示和用户安全声明；",
+        "标识公开文档的更新时间。"
+      ],
+      directoryTitle: "发布索引",
+      directory: [
+        ["官网规划", "项目官网板块和内容架构。"],
+        ["GOLD 喂价策略", "智能资产喂价和风险策略实现说明。"],
+        ["内容清单", "项目方仍需人工补充的内容输入。"],
+        ["风险提示", "用户安全、市场风险和免责声明。"],
+        ["代码仓库", "源码和项目参考链接。"],
+        ["更新", "最后更新日期和发布状态。"]
+      ],
+      operationsTitle: "文档控制",
+      operations:
+        "每份公开文档都应有清晰的负责人、版本日期和发布状态。未确认声明不应进入官方文档集。",
+      facts: [
+        ["文档", "docsUrl"],
+        ["GitHub", "githubUrl"],
+        ["联系邮箱", "contactEmail"],
+        ["更新", "lastUpdated"],
+        ["风险提示", "riskUrl"]
+      ]
+    }
+  }
+};

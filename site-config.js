@@ -15,5 +15,7 @@ window.DEFI_SITE_CONFIG = {
   defaultMarket: "GOLD_DFS",
   blockInterval: "3 seconds",
   airdropStatus: "Rules pending",
-  lastUpdated: "2026-07-11"
+  lastUpdated: "2026-07-11",
+  defaultLanguage: "en",
+  supportedLanguages: ["en", "zh"]
 };
