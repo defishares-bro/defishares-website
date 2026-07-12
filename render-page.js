@@ -37,6 +37,7 @@
       home: "Home",
       currentLabels: "Current public labels",
       lastUpdate: "Last Update",
+      language: "Language:",
       wallet: "Wallet",
       explorer: "Explorer",
       github: "GitHub",
@@ -68,6 +69,7 @@
       home: "首页",
       currentLabels: "当前公开信息",
       lastUpdate: "最后更新",
+      language: "语言：",
       wallet: "钱包",
       explorer: "浏览器",
       github: "GitHub",
@@ -91,6 +93,17 @@
       .replaceAll("<", "&lt;")
       .replaceAll(">", "&gt;")
       .replaceAll('"', "&quot;");
+  const configTranslations = {
+    zh: {
+      "Public Testnet": "公共测试网",
+      "Rules pending": "规则待定",
+      "3 seconds": "3 秒"
+    }
+  };
+  const displayValue = (field) => {
+    const text = String(value(field));
+    return configTranslations[lang]?.[text] || text;
+  };
 
   const nav = [
     ["about", "About", "./about.html"],
@@ -217,7 +230,7 @@
                 ([label, field]) => `
                   <div>
                     <dt>${esc(label)}</dt>
-                    <dd>${esc(value(field))}</dd>
+                    <dd>${esc(displayValue(field))}</dd>
                   </div>
                 `
               )
@@ -246,7 +259,7 @@
           <a href="./documents.html#risk">${labels.riskNotice}</a>
         </nav>
         <div class="footer-language" role="group" aria-label="Language">
-          <span>Language:</span>
+          <span>${labels.language}</span>
           <button type="button" data-lang="en" aria-pressed="${lang === "en"}">EN</button>
           <button type="button" data-lang="zh" aria-pressed="${lang === "zh"}">中文</button>
         </div>

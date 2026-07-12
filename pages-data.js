@@ -261,8 +261,8 @@ window.DEFI_PAGES_I18N = {
         "本站以统一的机构式结构呈现项目特性，让用户可以在项目概览、钱包访问、浏览器查询、文档与空投信息之间保持一致的上下文。",
       bullets: [
         "DFS 核心资产与 DFS 地址前缀构成链身份；",
-        "面向 DefiShares 管理型智能资产的 GOLD-centered 策略；",
-        "官方 Web 钱包入口支持账户与转账流程；",
+        "面向 DefiShares 管理型智能资产、以 GOLD 为中心的策略；",
+        "官方网页钱包入口支持账户与转账流程；",
         "公共浏览器用于查询区块、交易、账户和资产；",
         "提供项目公告、政策参考和空投状态文档。"
       ],
@@ -277,7 +277,7 @@ window.DEFI_PAGES_I18N = {
       ],
       operationsTitle: "当前特性状态",
       operations:
-        "官网应根据已确认的网络状态展示功能。仍待最终运营输入的功能，应标记为 pending 或 rules pending，而不是展示为已上线。",
+        "官网应根据已确认的网络状态展示功能。仍待最终运营输入的功能，应标记为待定或规则待定，而不是展示为已上线。",
       facts: [
         ["网络", "networkStatus"],
         ["核心资产", "coreAsset"],
@@ -287,27 +287,27 @@ window.DEFI_PAGES_I18N = {
     },
     gold: {
       title: "GOLD 模型",
-      description: "DefiShares GOLD-centered 喂价与智能资产策略。",
+      description: "DefiShares 以 GOLD 为中心的喂价与智能资产策略。",
       visualTitle: "GOLD 策略",
       visualSubtitle: "管理型智能资产的协议定价锚点",
-      introLead: "DefiShares 使用 GOLD 作为管理型 DFS-backed 智能资产的协议级喂价锚点。",
+      introLead: "DefiShares 使用 GOLD 作为管理型智能资产的协议级喂价锚点。",
       intro:
-        "非 GOLD 的管理型 bitassets 由见证人发布 TARGET/GOLD，链上逻辑再推导有效的 TARGET/DFS current_feed。本页说明公开口径下的策略结构，不把该机制包装为投资承诺。",
+        "非 GOLD 的管理型智能资产由见证人发布 TARGET/GOLD，链上逻辑再推导有效的 TARGET/DFS 当前喂价。本页说明公开口径下的策略结构，不把该机制包装为投资承诺。",
       bullets: [
-        "GOLD 是 DefiShares 管理型 bitassets 的路由资产；",
+        "GOLD 是 DefiShares 管理型智能资产的路由资产；",
         "GOLD/DFS 价格由链上策略生成，而不是普通的见证人直接发布；",
         "非 GOLD 管理型资产发布 TARGET/GOLD 源喂价；",
-        "有效 TARGET/DFS 由链上推导，并作为 current_feed 使用；",
-        "管理型 bitassets 使用固定初始抵押率策略。"
+        "有效 TARGET/DFS 由链上推导，并作为当前喂价使用；",
+        "管理型智能资产使用固定初始抵押率策略。"
       ],
       directoryTitle: "策略参考",
       directory: [
         ["喂价锚点", "GOLD 是管理型智能资产定价的共同路径。"],
-        ["TARGET/GOLD", "非 GOLD 管理型 DFS-backed 资产的见证人源格式。"],
+        ["TARGET/GOLD", "非 GOLD 管理型资产的见证人源格式。"],
         ["TARGET/DFS", "链上为债务和抵押逻辑推导出的有效喂价。"],
         ["抵押策略", "DefiShares 管理型智能资产的固定 ICR 策略。"],
-        ["风险边界", "Settlement 和 liquidation 规则不同于上游行为。"],
-        ["技术文档", "详见 DefiShares Smartcoin Feed and Risk Policy。"]
+        ["风险边界", "清算与强平规则不同于上游行为。"],
+        ["技术文档", "详见 DefiShares 智能资产喂价与风险策略。"]
       ],
       operationsTitle: "重要公开说明",
       operations:
@@ -322,9 +322,9 @@ window.DEFI_PAGES_I18N = {
     wallet: {
       title: "钱包",
       description: "DefiShares 官方钱包访问页。",
-      visualTitle: "Web 钱包",
+      visualTitle: "网页钱包",
       visualSubtitle: "官方本地签名访问入口",
-      introLead: "DefiShares Web 钱包是用户访问账户和资产操作的官方入口。",
+      introLead: "DefiShares 网页钱包是用户访问账户和资产操作的官方入口。",
       intro:
         "钱包页以官方访问页的方式组织：用户应能识别正确的钱包链接，理解本地签名安全模型，并在完成交易后前往浏览器验证状态。",
       bullets: [
@@ -336,7 +336,7 @@ window.DEFI_PAGES_I18N = {
       ],
       directoryTitle: "钱包功能",
       directory: [
-        ["打开钱包", "进入已确认的 Web 钱包 URL。"],
+        ["打开钱包", "进入已确认的网页钱包 URL。"],
         ["账户访问", "创建、导入、解锁和管理钱包账户。"],
         ["转账", "发送和接收 DFS 及支持资产。"],
         ["市场访问", "查看默认 GOLD_DFS 市场和相关资产。"],
@@ -358,7 +358,7 @@ window.DEFI_PAGES_I18N = {
       description: "DefiShares 官方区块链浏览器页面。",
       visualTitle: "链上浏览器",
       visualSubtitle: "公共链上记录与查询",
-      introLead: "DefiShares Explorer 是链上活动的官方公共查询入口。",
+      introLead: "DefiShares 浏览器是链上活动的官方公共查询入口。",
       intro:
         "机构式页面应说明哪些内容可以被验证，以及用户应前往哪里查看权威记录。浏览器用于查看区块、交易、账户、资产和分发记录。",
       bullets: [
@@ -426,7 +426,7 @@ window.DEFI_PAGES_I18N = {
       description: "DefiShares 开发者与节点参考页面。",
       visualTitle: "开发者资源",
       visualSubtitle: "RPC、节点、文档与仓库参考",
-      introLead: "Developers 页面提供 DefiShares 集成所需的官方技术入口。",
+      introLead: "开发者页面提供 DefiShares 集成所需的官方技术入口。",
       intro:
         "该页面采用机构式参考页结构：识别稳定的公共端点、实现文档和仓库链接，避免与宣传内容混杂。",
       bullets: [
@@ -440,8 +440,8 @@ window.DEFI_PAGES_I18N = {
       directory: [
         ["公共 RPC", "用于链访问的官方 WebSocket 端点。"],
         ["核心仓库", "已确认的项目源码仓库。"],
-        ["节点软件", "Witness node 和 CLI wallet 参考。"],
-        ["钱包 UI", "DefiShares UI fork 和浏览器钱包配置。"],
+        ["节点软件", "见证人节点和命令行钱包参考。"],
+        ["钱包界面", "DefiShares 界面分叉和浏览器钱包配置。"],
         ["策略文档", "智能资产喂价和风险策略文档。"],
         ["浏览器", "用于开发和测试的公共记录检查入口。"]
       ],
@@ -461,7 +461,7 @@ window.DEFI_PAGES_I18N = {
       description: "DefiShares 文档、发布和公告。",
       visualTitle: "公开文档",
       visualSubtitle: "官方文档和风险提示",
-      introLead: "Documents 页面是 DefiShares 的官方发布索引。",
+      introLead: "文档页面是 DefiShares 的官方发布索引。",
       intro:
         "按照机构式结构，文档按用途分组：项目规划、技术策略、官网内容清单以及风险或免责声明材料。",
       bullets: [

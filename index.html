@@ -36,7 +36,7 @@
             <a href="#community" data-i18n="contact">Contact</a>
           </nav>
           <form class="search-form" role="search">
-            <label for="site-search" class="sr-only">Search</label>
+            <label for="site-search" class="sr-only" data-i18n="search">Search</label>
             <input id="site-search" type="search" placeholder="Search" data-i18n-placeholder="search" />
             <button type="submit" data-i18n="search">Search</button>
           </form>
@@ -132,27 +132,27 @@
 
       <section class="page-shell tab-section" id="features">
         <div class="tabs" role="tablist" aria-label="Recent developments">
-          <button role="tab" id="tab-overview" aria-controls="panel-overview" aria-selected="true">Recent Developments</button>
-          <button role="tab" id="tab-notices" aria-controls="panel-notices" aria-selected="false">Project Notices</button>
-          <button role="tab" id="tab-publications" aria-controls="panel-publications" aria-selected="false">Publications</button>
+          <button role="tab" id="tab-overview" aria-controls="panel-overview" aria-selected="true" data-i18n="recentDevelopments">Recent Developments</button>
+          <button role="tab" id="tab-notices" aria-controls="panel-notices" aria-selected="false" data-i18n="projectNotices">Project Notices</button>
+          <button role="tab" id="tab-publications" aria-controls="panel-publications" aria-selected="false" data-i18n="publications">Publications</button>
         </div>
         <div class="tab-panels">
           <section class="tab-panel active" id="panel-overview" role="tabpanel" aria-labelledby="tab-overview">
             <div class="news-list">
               <article>
-                <p class="meta">Project brief</p>
-                <h3><a href="./gold.html">GOLD-centered feed policy defines DefiShares smartcoin behavior</a></h3>
-                <p>DefiShares uses GOLD as the routing asset for managed bitassets and derives effective TARGET/DFS feeds on chain.</p>
+                <p class="meta" data-i18n="projectBrief">Project brief</p>
+                <h3><a href="./gold.html" data-i18n="goldNewsTitle">GOLD-centered feed policy defines DefiShares smartcoin behavior</a></h3>
+                <p data-i18n="goldNewsBody">DefiShares uses GOLD as the routing asset for managed bitassets and derives effective TARGET/DFS feeds on chain.</p>
               </article>
               <article>
-                <p class="meta">Wallet access</p>
-                <h3><a href="#" data-link="walletUrl">DefiShares Web Wallet provides local-signing browser access</a></h3>
-                <p>Private keys remain local to the user's wallet environment; transactions are signed locally before broadcast.</p>
+                <p class="meta" data-i18n="walletAccess">Wallet access</p>
+                <h3><a href="#" data-link="walletUrl" data-i18n="walletNewsTitle">DefiShares Web Wallet provides local-signing browser access</a></h3>
+                <p data-i18n="walletNewsBody">Private keys remain local to the user's wallet environment; transactions are signed locally before broadcast.</p>
               </article>
               <article>
-                <p class="meta">Explorer</p>
-                <h3><a href="#" data-link="explorerUrl">Explorer entry prepared for block, account, asset, and transaction lookup</a></h3>
-                <p>The explorer is the public record surface for verifying chain activity and distribution records.</p>
+                <p class="meta" data-i18n="navExplorer">Explorer</p>
+                <h3><a href="#" data-link="explorerUrl" data-i18n="explorerNewsTitle">Explorer entry prepared for block, account, asset, and transaction lookup</a></h3>
+                <p data-i18n="explorerNewsBody">The explorer is the public record surface for verifying chain activity and distribution records.</p>
               </article>
             </div>
           </section>
@@ -160,21 +160,21 @@
           <section class="tab-panel" id="panel-notices" role="tabpanel" aria-labelledby="tab-notices" hidden>
             <div class="notice-grid">
               <article>
-                <h3>Network designation</h3>
-                <p>This site currently labels the active network as <strong data-config="networkStatus">Public Testnet</strong>. Update in <code>site-config.js</code> if the launch state changes.</p>
+                <h3 data-i18n="networkDesignation">Network designation</h3>
+                <p data-i18n="networkDesignationBody">This site currently labels the active network as Public Testnet. Update site-config.js if the launch state changes.</p>
               </article>
               <article>
-                <h3>Risk statement</h3>
-                <p>DFS and DefiShares-managed assets involve blockchain, liquidity, market, custody, and protocol risks. This website does not provide investment advice.</p>
+                <h3 data-i18n="riskStatement">Risk statement</h3>
+                <p data-i18n="riskStatementBody">DFS and DefiShares-managed assets involve blockchain, liquidity, market, custody, and protocol risks. This website does not provide investment advice.</p>
               </article>
             </div>
           </section>
 
           <section class="tab-panel" id="panel-publications" role="tabpanel" aria-labelledby="tab-publications" hidden>
             <ul class="publication-list">
-              <li><a href="../DefiShares项目官网板块与内容规划.md">Website section and content planning document</a></li>
-              <li><a href="../bitshares-core/defishares-docs/Gold-Feed-Policy.md">DefiShares Smartcoin Feed and Risk Policy</a></li>
-              <li><a href="../output/pdf/DefiShares官网待填写内容清单.pdf">Website content completion checklist</a></li>
+              <li><a href="../DefiShares项目官网板块与内容规划.md" data-i18n="websitePlanningDoc">Website section and content planning document</a></li>
+              <li><a href="../bitshares-core/defishares-docs/Gold-Feed-Policy.md" data-i18n="feedPolicyDoc">DefiShares Smartcoin Feed and Risk Policy</a></li>
+              <li><a href="../output/pdf/DefiShares官网待填写内容清单.pdf" data-i18n="checklistDoc">Website content completion checklist</a></li>
             </ul>
           </section>
         </div>
@@ -183,69 +183,69 @@
       <section class="blue-band" id="gold">
         <div class="page-shell two-column">
           <div>
-            <p class="section-kicker light">Protocol Policy</p>
-            <h2>GOLD-centered smart asset pricing</h2>
-            <p>
+            <p class="section-kicker light" data-i18n="protocolPolicy">Protocol Policy</p>
+            <h2 data-i18n="goldPricingTitle">GOLD-centered smart asset pricing</h2>
+            <p data-i18n="goldPricingBody">
               DefiShares changes upstream BitShares smartcoin semantics for managed DFS-backed bitassets.
               GOLD is the protocol feed anchor, non-GOLD managed bitassets publish TARGET/GOLD, and the chain
               derives the effective TARGET/DFS current feed.
             </p>
           </div>
           <div class="formula-panel" aria-label="GOLD feed formula">
-            <div>Witness publishes <strong>TARGET/GOLD</strong></div>
+            <div><span data-i18n="witnessPublishes">Witness publishes</span> <strong>TARGET/GOLD</strong></div>
             <span>+</span>
-            <div>Chain-generated <strong>GOLD/DFS</strong></div>
+            <div><span data-i18n="chainGenerated">Chain-generated</span> <strong>GOLD/DFS</strong></div>
             <span>=</span>
-            <div>Effective <strong>TARGET/DFS current_feed</strong></div>
+            <div><span data-i18n="effectiveFeed">Effective</span> <strong data-i18n="targetDfsFeed">TARGET/DFS current_feed</strong></div>
           </div>
         </div>
       </section>
 
       <section class="page-shell content-grid">
         <article class="content-card" id="wallet">
-          <p class="meta">Wallet</p>
-          <h2>Web Wallet</h2>
-          <p>Create or import a wallet, review balances, transfer assets, and access the DFS market through the official wallet entry.</p>
-          <a href="#" data-link="walletUrl">Open wallet</a>
+          <p class="meta" data-i18n="navWallet">Wallet</p>
+          <h2 data-i18n="webWallet">Web Wallet</h2>
+          <p data-i18n="walletCardBody">Create or import a wallet, review balances, transfer assets, and access the DFS market through the official wallet entry.</p>
+          <a href="#" data-link="walletUrl" data-i18n="openWallet">Open wallet</a>
         </article>
         <article class="content-card" id="explorer">
-          <p class="meta">Explorer</p>
-          <h2>Chain Explorer</h2>
-          <p>Look up blocks, transactions, accounts, assets, and distribution records through the public explorer.</p>
-          <a href="#" data-link="explorerUrl">View explorer</a>
+          <p class="meta" data-i18n="navExplorer">Explorer</p>
+          <h2 data-i18n="chainExplorer">Chain Explorer</h2>
+          <p data-i18n="explorerCardBody">Look up blocks, transactions, accounts, assets, and distribution records through the public explorer.</p>
+          <a href="#" data-link="explorerUrl" data-i18n="viewExplorerLower">View explorer</a>
         </article>
         <article class="content-card" id="developers">
-          <p class="meta">Developers</p>
-          <h2>RPC Access</h2>
-          <p>Connect services and tools to the official public WebSocket endpoint.</p>
+          <p class="meta" data-i18n="navDevelopers">Developers</p>
+          <h2 data-i18n="rpcAccess">RPC Access</h2>
+          <p data-i18n="rpcBody">Connect services and tools to the official public WebSocket endpoint.</p>
           <div class="copy-row">
             <code data-config="rpcUrl">wss://api.defishares.org/ws/</code>
-            <button type="button" id="copy-rpc">Copy</button>
+            <button type="button" id="copy-rpc" data-i18n="copy">Copy</button>
           </div>
         </article>
       </section>
 
       <section class="page-shell airdrop-section" id="airdrop">
         <div>
-          <p class="section-kicker">Community Distribution</p>
-          <h2>DFS Airdrop</h2>
-          <p>
+          <p class="section-kicker" data-i18n="communityDistribution">Community Distribution</p>
+          <h2 data-i18n="dfsAirdrop">DFS Airdrop</h2>
+          <p data-i18n="airdropBody">
             The airdrop page will present allocation, eligibility, snapshot time, claim window, distribution account,
             and chain-verifiable records once the project team publishes final rules.
           </p>
         </div>
         <div class="airdrop-table" role="table" aria-label="Airdrop fields">
           <div role="row">
-            <strong role="cell">Status</strong>
+            <strong role="cell" data-i18n="status">Status</strong>
             <span role="cell" data-config="airdropStatus">Rules pending</span>
           </div>
           <div role="row">
-            <strong role="cell">Required fields</strong>
-            <span role="cell">Allocation, eligibility, snapshot, claim window, distribution account, audit records</span>
+            <strong role="cell" data-i18n="requiredFields">Required fields</strong>
+            <span role="cell" data-i18n="requiredFieldsValue">Allocation, eligibility, snapshot, claim window, distribution account, audit records</span>
           </div>
           <div role="row">
-            <strong role="cell">Security note</strong>
-            <span role="cell">Never enter private keys, seed phrases, or wallet passwords on an airdrop page.</span>
+            <strong role="cell" data-i18n="securityNote">Security note</strong>
+            <span role="cell" data-i18n="securityNoteValue">Never enter private keys, seed phrases, or wallet passwords on an airdrop page.</span>
           </div>
         </div>
       </section>
@@ -253,32 +253,32 @@
       <section class="page-shell documents-section" id="documents">
         <div class="section-heading-row">
           <div>
-            <p class="section-kicker">Publications</p>
-            <h2>Documents and official references</h2>
+            <p class="section-kicker" data-i18n="publications">Publications</p>
+            <h2 data-i18n="documentsReferences">Documents and official references</h2>
           </div>
-          <a class="button secondary" href="#" data-link="githubUrl">GitHub Repository</a>
+          <a class="button secondary" href="#" data-link="githubUrl" data-i18n="githubRepository">GitHub Repository</a>
         </div>
         <div class="document-list">
           <a href="../DefiShares项目官网板块与内容规划.md">
-            <span>Planning Document</span>
-            <strong>Project website sections and content architecture</strong>
+            <span data-i18n="planningDocument">Planning Document</span>
+            <strong data-i18n="planningDocumentBody">Project website sections and content architecture</strong>
           </a>
           <a href="../bitshares-core/defishares-docs/Gold-Feed-Policy.md">
-            <span>Technical Policy</span>
-            <strong>DefiShares Smartcoin Feed and Risk Policy</strong>
+            <span data-i18n="technicalPolicy">Technical Policy</span>
+            <strong data-i18n="feedPolicyBody">DefiShares Smartcoin Feed and Risk Policy</strong>
           </a>
           <a href="../output/pdf/DefiShares官网待填写内容清单.pdf">
-            <span>Checklist</span>
-            <strong>Website content items pending manual completion</strong>
+            <span data-i18n="checklist">Checklist</span>
+            <strong data-i18n="checklistBody">Website content items pending manual completion</strong>
           </a>
         </div>
       </section>
 
       <section class="risk-section" id="risk">
         <div class="page-shell">
-          <p class="section-kicker">Risk and Disclaimer</p>
-          <h2>Important user notice</h2>
-          <p>
+          <p class="section-kicker" data-i18n="riskDisclaimer">Risk and Disclaimer</p>
+          <h2 data-i18n="importantNotice">Important user notice</h2>
+          <p data-i18n="riskBody">
             Digital assets can be volatile and may involve technical, market, liquidity, custody, and regulatory risks.
             DefiShares does not guarantee profit, price performance, redemption, or investment outcome.
             Users are responsible for safeguarding private keys and verifying official URLs before interacting with any wallet or airdrop page.
@@ -302,7 +302,7 @@
           <a href="./documents.html#risk" data-i18n="riskNotice">Risk Notice</a>
         </nav>
         <div class="footer-language" role="group" aria-label="Language">
-          <span>Language:</span>
+          <span data-i18n="language">Language:</span>
           <button type="button" data-lang="en">EN</button>
           <button type="button" data-lang="zh">中文</button>
         </div>
