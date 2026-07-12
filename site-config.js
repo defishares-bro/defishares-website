@@ -1,0 +1,19 @@
+window.DEFI_SITE_CONFIG = {
+  websiteUrl: "https://defishares.org",
+  walletUrl: "https://wallet.defishares.org",
+  explorerUrl: "https://explorer.defishares.org",
+  githubUrl: "https://github.com/defishares",
+  contactEmail: "contact@defishares.org",
+  devEmail: "dev@defishares.org",
+  docsUrl: "../DefiShares项目官网板块与内容规划.md",
+  whitepaperUrl: "#documents",
+  riskUrl: "#risk",
+  networkStatus: "Public Testnet",
+  rpcUrl: "wss://api.defishares.org/ws/",
+  coreAsset: "DFS",
+  addressPrefix: "DFS",
+  defaultMarket: "GOLD_DFS",
+  blockInterval: "3 seconds",
+  airdropStatus: "Rules pending",
+  lastUpdated: "2026-07-11"
+};
