@@ -168,7 +168,7 @@
           <a href="${esc(value("explorerUrl"))}">Explorer</a>
           <a href="${esc(value("githubUrl"))}">GitHub</a>
           <a href="mailto:${esc(value("contactEmail"))}">Contact</a>
-          <a href="mailto:${esc(value("devEmail"))}">Technical</a>
+          <a href="mailto:${esc(value("devEmail"))}">Developer</a>
           <a href="./documents.html#risk">Risk Notice</a>
         </nav>
       </div>
