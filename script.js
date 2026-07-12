@@ -2,9 +2,13 @@
   const config = window.DEFI_SITE_CONFIG || {};
   const supportedLanguages = config.supportedLanguages || ["en", "zh"];
   const params = new URLSearchParams(window.location.search);
-  const requestedLanguage = params.get("lang") || localStorage.getItem("defishares-lang") || config.defaultLanguage || "en";
+  const browserLanguage = (navigator.languages || [navigator.language || ""])
+    .map((language) => String(language).toLowerCase())
+    .find((language) => language.startsWith("zh"))
+    ? "zh"
+    : config.defaultLanguage || "en";
+  const requestedLanguage = params.get("lang") || localStorage.getItem("defishares-lang") || browserLanguage;
   const currentLanguage = supportedLanguages.includes(requestedLanguage) ? requestedLanguage : "en";
-  localStorage.setItem("defishares-lang", currentLanguage);
   document.documentElement.lang = currentLanguage === "zh" ? "zh-CN" : "en";
 
   const translations = {

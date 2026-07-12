@@ -3,9 +3,13 @@
   const pageGroups = window.DEFI_PAGES_I18N || { en: window.DEFI_PAGES || {} };
   const supportedLanguages = config.supportedLanguages || ["en", "zh"];
   const params = new URLSearchParams(window.location.search);
-  const requestedLanguage = params.get("lang") || localStorage.getItem("defishares-lang") || config.defaultLanguage || "en";
+  const browserLanguage = (navigator.languages || [navigator.language || ""])
+    .map((language) => String(language).toLowerCase())
+    .find((language) => language.startsWith("zh"))
+    ? "zh"
+    : config.defaultLanguage || "en";
+  const requestedLanguage = params.get("lang") || localStorage.getItem("defishares-lang") || browserLanguage;
   const lang = supportedLanguages.includes(requestedLanguage) ? requestedLanguage : "en";
-  localStorage.setItem("defishares-lang", lang);
   document.documentElement.lang = lang === "zh" ? "zh-CN" : "en";
   const pages = pageGroups[lang] || pageGroups.en || {};
   const key = document.body.getAttribute("data-page");
