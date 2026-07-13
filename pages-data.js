@@ -59,7 +59,7 @@ window.DEFI_PAGES = {
       ["Risk Limits", "Settlement and liquidation rules differ from upstream behavior."],
       ["Technical Document", "See DefiShares Smartcoin Feed and Risk Policy for implementation details."]
     ],
-    operationsTitle: "",
+    operationsTitle: "Important Public Statement",
     operations:
       "GOLD is only a protocol policy anchor. DefiShares does not promise physical gold redemption.",
     facts: [
@@ -309,7 +309,7 @@ window.DEFI_PAGES_I18N = {
         ["风险边界", "清算与强平规则不同于上游行为。"],
         ["技术文档", "详见 DefiShares 智能资产喂价与风险策略。"]
       ],
-      operationsTitle: "",
+      operationsTitle: "重要公开说明",
       operations:
         "GOLD仅为协议策略锚点，DefiShares不承诺实物黄金兑付。",
       facts: [
