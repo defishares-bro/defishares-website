@@ -219,7 +219,7 @@
 
       <section class="page-shell about-governance">
         <div>
-          <h2>${esc(page.operationsTitle)}</h2>
+          ${page.operationsTitle ? `<h2>${esc(page.operationsTitle)}</h2>` : ""}
           <p>${esc(page.operations)}</p>
         </div>
         <aside>
