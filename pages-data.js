@@ -61,7 +61,7 @@ window.DEFI_PAGES = {
     ],
     operationsTitle: "Important Public Statement",
     operations:
-      "GOLD should be described as a protocol policy anchor unless the project has a separate legally verified redemption or reserve program. The website should not imply physical-gold redemption without formal support.",
+      "Unless the project has a separate legally verified redemption or reserve program, GOLD is only a protocol policy anchor. DefiShares does not promise redemption between collateralized derivative digital assets and corresponding real-world assets.",
     facts: [
       ["Core asset", "coreAsset"],
       ["Default market", "defaultMarket"],
@@ -311,7 +311,7 @@ window.DEFI_PAGES_I18N = {
       ],
       operationsTitle: "重要公开说明",
       operations:
-        "除非项目存在单独且经过法律验证的兑付或储备安排，GOLD 应描述为协议策略锚点。官网不应暗示实物黄金兑付。",
+        "除非项目存在单独且经过法律验证的兑付或储备安排，GOLD 仅为协议策略锚点。不承诺 DefiShares 抵押衍生数字资产与相应真实资产的承兑。",
       facts: [
         ["核心资产", "coreAsset"],
         ["默认市场", "defaultMarket"],
