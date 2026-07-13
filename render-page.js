@@ -256,7 +256,7 @@
           <a href="${esc(value("githubUrl"))}">${labels.github}</a>
           <a href="mailto:${esc(value("contactEmail"))}">${labels.contact}</a>
           <a href="mailto:${esc(value("devEmail"))}">${labels.developer}</a>
-          <a href="./documents.html#risk">${labels.riskNotice}</a>
+          <a href="./index.html#risk">${labels.riskNotice}</a>
         </nav>
         <div class="footer-language" role="group" aria-label="Language">
           <span>${labels.language}</span>
