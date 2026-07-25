@@ -201,6 +201,40 @@
         </div>
       </section>
 
+      ${
+        key === "airdrop"
+          ? `
+      <section class="page-shell airdrop-query" id="eligibility" aria-labelledby="airdrop-query-title">
+        <div class="airdrop-query-heading">
+          <div>
+            <p class="section-kicker" data-airdrop-text="kicker"></p>
+            <h2 id="airdrop-query-title" data-airdrop-text="title"></h2>
+            <p data-airdrop-text="intro"></p>
+          </div>
+          <span class="airdrop-query-badge" data-airdrop-text="snapshotStatus"></span>
+        </div>
+        <form class="airdrop-query-form" id="airdrop-query-form">
+          <div class="airdrop-field">
+            <label for="airdrop-network" data-airdrop-text="networkLabel"></label>
+            <select id="airdrop-network" name="network">
+              <option value="nbs" data-airdrop-text="nbsNetwork"></option>
+              <option value="bts" data-airdrop-text="btsNetwork"></option>
+            </select>
+          </div>
+          <div class="airdrop-field airdrop-account-field">
+            <label for="airdrop-account" data-airdrop-text="accountLabel"></label>
+            <input id="airdrop-account" name="account" type="text" autocomplete="off" spellcheck="false" required data-airdrop-placeholder="accountPlaceholder" />
+          </div>
+          <button class="button button-primary" type="submit" data-airdrop-text="queryButton"></button>
+        </form>
+        <p class="airdrop-query-status" id="airdrop-query-status" role="status" aria-live="polite" data-airdrop-text="initialStatus"></p>
+        <div class="airdrop-result" id="airdrop-result" hidden></div>
+        <p class="airdrop-query-note" data-airdrop-text="securityNote"></p>
+      </section>
+      `
+          : ""
+      }
+
       <section class="page-shell about-directory" aria-labelledby="directory-title">
         <h2 id="directory-title">${esc(page.directoryTitle)}</h2>
         <div class="directory-grid">

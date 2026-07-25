@@ -10,6 +10,7 @@ Static official-information website for DefiShares, styled after a restrained U.
 - `styles.css` - Federal Reserve-inspired institutional color system and responsive layout.
 - `script.js` - tabs, banner disclosure, search, config injection, and RPC copy behavior.
 - `site-config.js` - confirmed project links and network labels.
+- `airdrop.js` - dual-network airdrop eligibility query UI. Set `airdropApiUrl` in `site-config.js` to connect the published query service.
 - `pages-data.js` and `render-page.js` - shared second-level page content and renderer.
 - Multilingual support is available through `?lang=en`, `?lang=zh`, and the EN/中文 switch in the header. The selected language is stored in `localStorage`.
 - `assets/defishares-seal.png` - local DefiShares seal image.
@@ -28,6 +29,8 @@ window.DEFI_SITE_CONFIG = {
   devEmail: "dev@defishares.org"
 };
 ```
+
+The airdrop query page calls `airdropApiUrl` with `network` (`nbs` or `bts`) and `account` query parameters. The endpoint should return JSON containing the account name and balance fields: `available`, `collateral`, `liquidity_pool`, `open_order`, `user_locked`, and `total`. Optional `snapshot_block` and `snapshot_time` fields are displayed with the result.
 
 ## Local Preview
 

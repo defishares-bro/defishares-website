@@ -573,6 +573,143 @@ code {
   background: #f1f4f7;
 }
 
+.airdrop-query {
+  padding: 38px 0;
+  border-top: 1px solid var(--line);
+}
+
+.airdrop-query-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 22px;
+  margin-bottom: 20px;
+}
+
+.airdrop-query-heading h2 {
+  margin: 0 0 8px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 28px;
+}
+
+.airdrop-query-heading p:not(.section-kicker) {
+  max-width: 720px;
+  margin: 0;
+  color: var(--muted);
+}
+
+.airdrop-query-badge {
+  flex: 0 0 auto;
+  padding: 7px 10px;
+  border: 1px solid var(--line);
+  color: var(--blue);
+  background: #f1f4f7;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.airdrop-query-form {
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 14px;
+  padding: 18px;
+  border: 1px solid var(--line);
+  background: #fbfcfd;
+}
+
+.airdrop-field {
+  display: grid;
+  gap: 6px;
+}
+
+.airdrop-field label {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.airdrop-field input,
+.airdrop-field select {
+  min-height: 42px;
+  border: 1px solid #aebac7;
+  padding: 8px 10px;
+  color: var(--ink);
+  background: white;
+}
+
+.airdrop-query-status {
+  min-height: 25px;
+  margin: 14px 0 0;
+  color: var(--muted);
+}
+
+.airdrop-query-status.is-error {
+  color: #8a2f2f;
+}
+
+.airdrop-query-status.is-success {
+  color: #21613f;
+}
+
+.airdrop-result {
+  margin-top: 12px;
+  border: 1px solid var(--line);
+  background: white;
+}
+
+.airdrop-result-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 16px 18px;
+  background: #f1f4f7;
+  border-bottom: 1px solid var(--line);
+}
+
+.airdrop-result-header strong {
+  display: block;
+  font-size: 20px;
+}
+
+.airdrop-result-header span {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.airdrop-result-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.airdrop-result-item {
+  padding: 14px 18px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.airdrop-result-item:nth-child(3n) {
+  border-right: 0;
+}
+
+.airdrop-result-item span {
+  display: block;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.airdrop-result-item strong {
+  display: block;
+  margin-top: 3px;
+  font-size: 18px;
+}
+
+.airdrop-query-note {
+  margin: 14px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
 .documents-section {
   padding: 38px 0;
   border-top: 1px solid var(--line);
@@ -895,6 +1032,8 @@ code {
   .two-column,
   .content-grid,
   .airdrop-section,
+  .airdrop-query-form,
+  .airdrop-result-grid,
   .document-list,
   .notice-grid,
   .about-intro,
@@ -940,6 +1079,16 @@ code {
 
   .airdrop-table > div {
     grid-template-columns: 1fr;
+  }
+
+  .airdrop-query-heading,
+  .airdrop-result-header {
+    flex-direction: column;
+  }
+
+  .airdrop-result-item,
+  .airdrop-result-item:nth-child(3n) {
+    border-right: 0;
   }
 
   .action-row .button {
