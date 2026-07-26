@@ -40,6 +40,8 @@
       targetPlaceholder: "Enter the DFS account that should receive the airdrop",
       challengeButton: "Create signing challenge",
       challengeTitle: "Sign this challenge in the source wallet",
+      copyChallenge: "Copy challenge",
+      copied: "Challenge copied.",
       signatureLabel: "Complete signed message",
       signaturePlaceholder: "Paste the complete BEGIN BITSHARES SIGNED MESSAGE block",
       verifyButton: "Verify identity",
@@ -96,6 +98,8 @@
       targetPlaceholder: "输入接收空投的 DFS 账户",
       challengeButton: "生成签名挑战",
       challengeTitle: "请在来源钱包中签署以下挑战",
+      copyChallenge: "复制挑战内容",
+      copied: "挑战内容已复制。",
       signatureLabel: "完整签名消息",
       signaturePlaceholder: "粘贴完整的 BEGIN BITSHARES SIGNED MESSAGE 区块",
       verifyButton: "验证身份",
@@ -187,6 +191,7 @@
           <div class="airdrop-challenge-box" data-airdrop-challenge-box hidden>
             <strong>${text("challengeTitle")}</strong>
             <pre data-airdrop-challenge></pre>
+            <button class="button secondary" type="button" data-airdrop-action="copy-challenge">${text("copyChallenge")}</button>
             <p class="airdrop-query-status is-success">${text("challengeReady")}</p>
             <label for="airdrop-signed-message">${text("signatureLabel")}</label>
             <textarea id="airdrop-signed-message" rows="10" placeholder="${text("signaturePlaceholder")}"></textarea>
@@ -244,14 +249,42 @@
     return payload;
   };
 
+  const copyText = async valueToCopy => {
+    if (navigator.clipboard?.writeText) {
+      await navigator.clipboard.writeText(valueToCopy);
+      return;
+    }
+    const textarea = document.createElement("textarea");
+    textarea.value = valueToCopy;
+    textarea.setAttribute("readonly", "");
+    textarea.style.position = "fixed";
+    textarea.style.opacity = "0";
+    document.body.appendChild(textarea);
+    textarea.select();
+    const copied = document.execCommand("copy");
+    textarea.remove();
+    if (!copied) throw new Error("Clipboard access is unavailable");
+  };
+
   const bindClaimActions = (root, selectedNetwork, accountName) => {
     const panel = root.querySelector("[data-airdrop-claim-panel]");
     if (!panel) return;
     const target = root.querySelector("#airdrop-target-account");
     const challengeBox = root.querySelector("[data-airdrop-challenge-box]");
     const challengeOutput = root.querySelector("[data-airdrop-challenge]");
+    const copyChallenge = root.querySelector('[data-airdrop-action="copy-challenge"]');
     const signedMessage = root.querySelector("#airdrop-signed-message");
     const actionStatus = root.querySelector("[data-airdrop-action-status]");
+    copyChallenge?.addEventListener("click", async () => {
+      const challenge = challengeOutput.textContent.trim();
+      if (!challenge) return;
+      try {
+        await copyText(challenge);
+        actionStatus.textContent = text("copied");
+      } catch (_) {
+        actionStatus.textContent = text("challengeFailed");
+      }
+    });
     root.querySelector('[data-airdrop-action="challenge"]')?.addEventListener("click", async () => {
       if (!target.value.trim()) {
         actionStatus.textContent = text("targetRequired");
