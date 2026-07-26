@@ -337,6 +337,12 @@ main {
   background: #f5f6f8;
 }
 
+.button.is-copied {
+  color: #21613b;
+  border-color: #8ac49e;
+  background: #edf8f0;
+}
+
 .official-card,
 .content-card {
   border: 1px solid var(--line);

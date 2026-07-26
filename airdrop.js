@@ -41,6 +41,7 @@
       challengeButton: "Create signing challenge",
       challengeTitle: "Sign this challenge in the source wallet",
       copyChallenge: "Copy challenge",
+      copiedButton: "Copied",
       copied: "Challenge copied.",
       signatureLabel: "Complete signed message",
       signaturePlaceholder: "Paste the complete BEGIN BITSHARES SIGNED MESSAGE block",
@@ -99,6 +100,7 @@
       challengeButton: "生成签名挑战",
       challengeTitle: "请在来源钱包中签署以下挑战",
       copyChallenge: "复制挑战内容",
+      copiedButton: "已复制",
       copied: "挑战内容已复制。",
       signatureLabel: "完整签名消息",
       signaturePlaceholder: "粘贴完整的 BEGIN BITSHARES SIGNED MESSAGE 区块",
@@ -275,11 +277,21 @@
     const copyChallenge = root.querySelector('[data-airdrop-action="copy-challenge"]');
     const signedMessage = root.querySelector("#airdrop-signed-message");
     const actionStatus = root.querySelector("[data-airdrop-action-status]");
+    let copyResetTimer;
     copyChallenge?.addEventListener("click", async () => {
       const challenge = challengeOutput.textContent.trim();
       if (!challenge) return;
       try {
         await copyText(challenge);
+        copyChallenge.textContent = text("copiedButton");
+        copyChallenge.classList.add("is-copied");
+        copyChallenge.disabled = true;
+        clearTimeout(copyResetTimer);
+        copyResetTimer = window.setTimeout(() => {
+          copyChallenge.textContent = text("copyChallenge");
+          copyChallenge.classList.remove("is-copied");
+          copyChallenge.disabled = false;
+        }, 1800);
         actionStatus.textContent = text("copied");
       } catch (_) {
         actionStatus.textContent = text("challengeFailed");
