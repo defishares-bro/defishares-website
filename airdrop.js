@@ -45,6 +45,7 @@
       copied: "Challenge copied.",
       signatureLabel: "Complete signed message",
       signaturePlaceholder: "Paste the complete BEGIN BITSHARES SIGNED MESSAGE block",
+      invalidSignatureEnvelope: "Paste the complete signed message for the current challenge.",
       verifyButton: "Verify identity",
       challengeReady: "Challenge created. It expires soon and can be used once.",
       targetInvalid: "This DFS receiving account does not exist. Register it first, then try again.",
@@ -104,6 +105,7 @@
       copied: "挑战内容已复制。",
       signatureLabel: "完整签名消息",
       signaturePlaceholder: "粘贴完整的 BEGIN BITSHARES SIGNED MESSAGE 区块",
+      invalidSignatureEnvelope: "请粘贴与当前挑战对应的完整签名消息。",
       verifyButton: "验证身份",
       challengeReady: "挑战已生成，请尽快签名；挑战只能使用一次。",
       targetInvalid: "这个 DFS 接收账户不存在，请先注册账户后再试。",
@@ -319,8 +321,13 @@
       }
     });
     root.querySelector('[data-airdrop-action="verify"]')?.addEventListener("click", async () => {
-      if (!signedMessage.value.trim()) {
-        actionStatus.textContent = text("required");
+      const signed = signedMessage.value.trim();
+      const challenge = challengeOutput.textContent.trim();
+      const hasEnvelope = signed.startsWith("-----BEGIN BITSHARES SIGNED MESSAGE-----") &&
+        signed.endsWith("-----END BITSHARES SIGNED MESSAGE-----") &&
+        challenge && signed.includes(challenge);
+      if (!hasEnvelope) {
+        actionStatus.textContent = text("invalidSignatureEnvelope");
         return;
       }
       try {
@@ -328,7 +335,7 @@
         await postJson(config.airdropVerifyUrl, {
           network: selectedNetwork,
           account: accountName,
-          signed_message: signedMessage.value.trim()
+          signed_message: signed
         });
         actionStatus.textContent = text("verified");
       } catch (_) {
