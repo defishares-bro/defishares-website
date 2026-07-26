@@ -44,6 +44,7 @@
       signaturePlaceholder: "Paste the complete BEGIN BITSHARES SIGNED MESSAGE block",
       verifyButton: "Verify identity",
       challengeReady: "Challenge created. It expires soon and can be used once.",
+      targetInvalid: "This DFS receiving account does not exist. Register it first, then try again.",
       verified: "Identity verified. The claim is waiting for manual transfer.",
       claimStatus: "Claim status",
       statusNotStarted: "Not started",
@@ -99,6 +100,7 @@
       signaturePlaceholder: "粘贴完整的 BEGIN BITSHARES SIGNED MESSAGE 区块",
       verifyButton: "验证身份",
       challengeReady: "挑战已生成，请尽快签名；挑战只能使用一次。",
+      targetInvalid: "这个 DFS 接收账户不存在，请先注册账户后再试。",
       verified: "身份验证成功，等待人工转账。",
       claimStatus: "领取状态",
       statusNotStarted: "未开始",
@@ -265,8 +267,10 @@
         challengeOutput.textContent = payload.challenge;
         challengeBox.hidden = false;
         actionStatus.textContent = text("challengeReady");
-      } catch (_) {
-        actionStatus.textContent = text("challengeFailed");
+      } catch (error) {
+        actionStatus.textContent = String(error.message || "").startsWith("Unknown DFS account:")
+          ? text("targetInvalid")
+          : (error.message || text("challengeFailed"));
       }
     });
     root.querySelector('[data-airdrop-action="verify"]')?.addEventListener("click", async () => {
