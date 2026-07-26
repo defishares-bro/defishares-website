@@ -15,9 +15,9 @@ window.DEFI_SITE_CONFIG = {
   defaultMarket: "GOLD_DFS",
   blockInterval: "3 seconds",
   airdropStatus: "Rules pending",
-  airdropApiUrl: "/api/v1/airdrop/eligibility",
-  airdropChallengeUrl: "/api/v1/airdrop/challenge",
-  airdropVerifyUrl: "/api/v1/airdrop/verify",
+  airdropApiUrl: "https://api.defishares.org/faucet/api/v1/airdrop/eligibility",
+  airdropChallengeUrl: "https://api.defishares.org/faucet/api/v1/airdrop/challenge",
+  airdropVerifyUrl: "https://api.defishares.org/faucet/api/v1/airdrop/verify",
   lastUpdated: "2026-07-26",
   defaultLanguage: "en",
   supportedLanguages: ["en", "zh"]
