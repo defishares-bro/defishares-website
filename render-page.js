@@ -184,23 +184,6 @@
         <h2>${esc(page.title)}</h2>
       </section>
 
-      <section class="page-shell about-intro">
-        <div class="about-visual" aria-label="${esc(page.visualTitle)}">
-          <img src="./assets/defishares-seal.png" alt="" />
-          <div>
-            <strong>${esc(page.visualTitle)}</strong>
-            <span>${esc(page.visualSubtitle)}</span>
-          </div>
-        </div>
-        <div class="about-summary">
-          <p>${esc(page.introLead)}</p>
-          <p>${esc(page.intro)}</p>
-          <ul>
-            ${page.bullets.map((item) => `<li>${esc(item)}</li>`).join("")}
-          </ul>
-        </div>
-      </section>
-
       ${
         key === "airdrop"
           ? `
@@ -234,6 +217,23 @@
       `
           : ""
       }
+
+      <section class="page-shell about-intro">
+        <div class="about-visual" aria-label="${esc(page.visualTitle)}">
+          <img src="./assets/defishares-seal.png" alt="" />
+          <div>
+            <strong>${esc(page.visualTitle)}</strong>
+            <span>${esc(page.visualSubtitle)}</span>
+          </div>
+        </div>
+        <div class="about-summary">
+          <p>${esc(page.introLead)}</p>
+          <p>${esc(page.intro)}</p>
+          <ul>
+            ${page.bullets.map((item) => `<li>${esc(item)}</li>`).join("")}
+          </ul>
+        </div>
+      </section>
 
       <section class="page-shell about-directory" aria-labelledby="directory-title">
         <h2 id="directory-title">${esc(page.directoryTitle)}</h2>

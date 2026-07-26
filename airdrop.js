@@ -5,7 +5,7 @@
     en: {
       kicker: "Eligibility lookup",
       title: "Check airdrop eligibility",
-      intro: "Select the source network and enter a public account name to review the recorded snapshot balance categories.",
+      intro: "Select a source network and enter a public account name to review the snapshot record and the next claim step.",
       snapshotStatus: "Snapshot service",
       networkLabel: "Source network",
       nbsNetwork: "NBS Network",
@@ -18,7 +18,7 @@
       unavailable: "The eligibility query service is not connected yet.",
       notFound: "No published snapshot record was found for this account.",
       invalid: "Please enter an account name.",
-      failed: "The query could not be completed. Please try again later.",
+      failed: "The request could not be completed. Please try again later.",
       found: "Snapshot record found.",
       account: "Account",
       network: "Network",
@@ -28,14 +28,39 @@
       openOrder: "Open orders",
       userLocked: "User-locked",
       total: "Total eligible balance",
+      dfsAmount: "DFS airdrop amount",
       snapshotBlock: "Snapshot block",
       snapshotTime: "Snapshot time",
-      securityNote: "This page never asks for private keys, seed phrases, or wallet passwords. Query results are informational until the official rules and claim process are published."
+      directTitle: "Direct import route",
+      directText: "This record is marked as a unique account with a single-key authority. Import the same derived keys into the DFS wallet; no signature claim is required.",
+      directSteps: "Use the same account name, password, and role derivation. The DFS wallet will display the DFS-prefixed public keys.",
+      signatureTitle: "Identity verification route",
+      signatureText: "Register or select the DFS receiving account, request a one-time challenge, sign it with the source wallet, and paste the complete signed message here.",
+      targetAccount: "DFS receiving account",
+      targetPlaceholder: "Enter the DFS account that should receive the airdrop",
+      challengeButton: "Create signing challenge",
+      challengeTitle: "Sign this challenge in the source wallet",
+      signatureLabel: "Complete signed message",
+      signaturePlaceholder: "Paste the complete BEGIN BITSHARES SIGNED MESSAGE block",
+      verifyButton: "Verify identity",
+      challengeReady: "Challenge created. It expires soon and can be used once.",
+      verified: "Identity verified. The claim is waiting for manual transfer.",
+      claimStatus: "Claim status",
+      statusNotStarted: "Not started",
+      statusChallenge: "Challenge issued",
+      statusPending: "Verified — pending transfer",
+      statusTransferred: "Transferred",
+      pendingFinalization: "The recorded snapshot is visible, but the final allocation has not been enabled yet.",
+      securityNote: "This page never asks for private keys, seed phrases, or wallet passwords. Only sign the challenge shown by the official page.",
+      targetRequired: "Enter a DFS receiving account first.",
+      challengeFailed: "The challenge could not be created.",
+      verifyFailed: "The signature could not be verified.",
+      required: "Please complete this field."
     },
     zh: {
       kicker: "资格查询",
       title: "查询空投资格",
-      intro: "选择来源网络并输入公开账户名，查看快照中记录的各类余额和汇总结果。",
+      intro: "选择来源网络并输入公开账户名，查看快照记录和下一步领取路径。",
       snapshotStatus: "快照服务",
       networkLabel: "来源网络",
       nbsNetwork: "NBS 网络",
@@ -48,7 +73,7 @@
       unavailable: "资格查询服务尚未连接。",
       notFound: "没有找到该账户的已发布快照记录。",
       invalid: "请输入账户名。",
-      failed: "查询未完成，请稍后重试。",
+      failed: "请求未完成，请稍后重试。",
       found: "已找到快照记录。",
       account: "账户",
       network: "网络",
@@ -58,14 +83,39 @@
       openOrder: "挂单余额",
       userLocked: "用户主动锁定",
       total: "可统计余额合计",
+      dfsAmount: "DFS 空投金额",
       snapshotBlock: "快照区块",
       snapshotTime: "快照时间",
-      securityNote: "本页面不会索要私钥、助记词或钱包密码。在官方规则和领取流程发布前，查询结果仅供信息核对。"
+      directTitle: "直接导入密钥领取",
+      directText: "该记录属于唯一账户名且为单一公钥权限。请将相同的派生密钥导入 DFS 钱包，不需要签名领取。",
+      directSteps: "使用相同账户名、密码和角色派生规则。DFS 钱包会显示 DFS 前缀的公钥。",
+      signatureTitle: "签名验证领取",
+      signatureText: "先注册或选择 DFS 接收账户，生成一次性挑战，用来源钱包签名后，将完整签名消息粘贴到这里。",
+      targetAccount: "DFS 接收账户",
+      targetPlaceholder: "输入接收空投的 DFS 账户",
+      challengeButton: "生成签名挑战",
+      challengeTitle: "请在来源钱包中签署以下挑战",
+      signatureLabel: "完整签名消息",
+      signaturePlaceholder: "粘贴完整的 BEGIN BITSHARES SIGNED MESSAGE 区块",
+      verifyButton: "验证身份",
+      challengeReady: "挑战已生成，请尽快签名；挑战只能使用一次。",
+      verified: "身份验证成功，等待人工转账。",
+      claimStatus: "领取状态",
+      statusNotStarted: "未开始",
+      statusChallenge: "已生成挑战",
+      statusPending: "已验证，等待转账",
+      statusTransferred: "已转账",
+      pendingFinalization: "当前快照记录已可查询，但最终分配尚未启用。",
+      securityNote: "本页面不会索要私钥、助记词或钱包密码。只签署官方页面显示的挑战内容。",
+      targetRequired: "请先填写 DFS 接收账户。",
+      challengeFailed: "生成挑战失败。",
+      verifyFailed: "签名验证失败。",
+      required: "请完成此项。"
     }
   }[language];
 
-  const text = (key) => copy[key] || key;
-  const escapeHtml = (value) => String(value ?? "")
+  const text = key => copy[key] || key;
+  const escapeHtml = value => String(value ?? "")
     .replaceAll("&", "&amp;")
     .replaceAll("<", "&lt;")
     .replaceAll(">", "&gt;")
@@ -73,10 +123,10 @@
   const queryForm = document.querySelector("#airdrop-query-form");
   if (!queryForm) return;
 
-  document.querySelectorAll("[data-airdrop-text]").forEach((node) => {
+  document.querySelectorAll("[data-airdrop-text]").forEach(node => {
     node.textContent = text(node.getAttribute("data-airdrop-text"));
   });
-  document.querySelectorAll("[data-airdrop-placeholder]").forEach((node) => {
+  document.querySelectorAll("[data-airdrop-placeholder]").forEach(node => {
     node.setAttribute("placeholder", text(node.getAttribute("data-airdrop-placeholder")));
   });
 
@@ -85,18 +135,72 @@
   const status = document.querySelector("#airdrop-query-status");
   const result = document.querySelector("#airdrop-result");
   const badge = document.querySelector(".airdrop-query-badge");
+
   const setStatus = (message, kind) => {
     status.textContent = message;
     status.className = `airdrop-query-status${kind ? ` is-${kind}` : ""}`;
   };
   const value = (data, keys) => {
     for (const key of keys) {
-      if (data && data[key] !== undefined && data[key] !== null) return data[key];
+      if (data && data[key] !== undefined && data[key] !== null && data[key] !== "") return data[key];
     }
     return "0";
   };
-  const format = (value) => String(value ?? "0");
-  const renderResult = (data, selectedNetwork) => {
+  const statusLabel = claimStatus => ({
+    not_started: text("statusNotStarted"),
+    challenge_issued: text("statusChallenge"),
+    verified_pending_transfer: text("statusPending"),
+    transferred: text("statusTransferred")
+  }[claimStatus] || claimStatus || text("statusNotStarted"));
+
+  const actionPanel = (data, selectedNetwork, accountName) => {
+    if (!data.ready) {
+      return `
+        <section class="airdrop-claim-panel is-review">
+          <p class="section-kicker">${text("claimStatus")}</p>
+          <p>${text("pendingFinalization")}</p>
+        </section>`;
+    }
+    const route = data.route || "manual_review";
+    const claimStatus = data.status || "not_started";
+    if (route === "direct_import") {
+      return `
+        <section class="airdrop-claim-panel is-direct">
+          <p class="section-kicker">${text("directTitle")}</p>
+          <p>${text("directText")}</p>
+          <p class="airdrop-action-note">${text("directSteps")}</p>
+        </section>`;
+    }
+    if (route === "signature") {
+      return `
+        <section class="airdrop-claim-panel" data-airdrop-claim-panel
+          data-network="${escapeHtml(selectedNetwork)}" data-account="${escapeHtml(accountName)}">
+          <p class="section-kicker">${text("signatureTitle")}</p>
+          <p>${text("signatureText")}</p>
+          <div class="airdrop-action-form">
+            <label for="airdrop-target-account">${text("targetAccount")}</label>
+            <input id="airdrop-target-account" type="text" autocomplete="off" spellcheck="false" placeholder="${text("targetPlaceholder")}" value="${escapeHtml(data.claim && data.claim.target_dfs_account)}" />
+            <button class="button button-primary" type="button" data-airdrop-action="challenge">${text("challengeButton")}</button>
+          </div>
+          <div class="airdrop-challenge-box" data-airdrop-challenge-box hidden>
+            <strong>${text("challengeTitle")}</strong>
+            <pre data-airdrop-challenge></pre>
+            <p class="airdrop-query-status is-success">${text("challengeReady")}</p>
+            <label for="airdrop-signed-message">${text("signatureLabel")}</label>
+            <textarea id="airdrop-signed-message" rows="10" placeholder="${text("signaturePlaceholder")}"></textarea>
+            <button class="button button-primary" type="button" data-airdrop-action="verify">${text("verifyButton")}</button>
+          </div>
+          <p class="airdrop-action-status" data-airdrop-action-status>${statusLabel(claimStatus)}</p>
+        </section>`;
+    }
+    return `
+      <section class="airdrop-claim-panel is-review">
+        <p class="section-kicker">${text("signatureTitle")}</p>
+        <p>${text("pendingFinalization")}</p>
+      </section>`;
+  };
+
+  const renderResult = (data, selectedNetwork, accountName) => {
     const networkName = selectedNetwork === "nbs" ? text("nbsNetwork") : text("btsNetwork");
     const fields = [
       ["available", ["available", "wallet_balance", "wallet_balance_display"]],
@@ -104,51 +208,114 @@
       ["liquidityPool", ["liquidity_pool", "liquidity_pool_display"]],
       ["openOrder", ["open_order", "open_order_display"]],
       ["userLocked", ["user_locked", "user_locked_display"]],
-      ["total", ["total", "eligible_bts", "airdrop_dfs"]]
+      ["total", ["total", "eligible_bts", "eligible_nbs"]],
+      ["dfsAmount", ["airdrop_dfs", "airdrop_dfs_nbs", "airdrop_dfs_bts"]]
     ];
     result.innerHTML = `
       <div class="airdrop-result-header">
         <div><strong>${escapeHtml(value(data, ["account_name", "account"]))}</strong><span>${text("account")}</span></div>
         <div><strong>${escapeHtml(networkName)}</strong><span>${text("network")}</span></div>
+        <div><strong>${escapeHtml(data.claim_id || "-")}</strong><span>${text("claimStatus")}</span></div>
       </div>
       <div class="airdrop-result-grid">
-        ${fields.map(([label, keys]) => `<div class="airdrop-result-item"><span>${text(label)}</span><strong>${escapeHtml(format(value(data, keys)))}</strong></div>`).join("")}
+        ${fields.map(([label, keys]) => `<div class="airdrop-result-item"><span>${text(label)}</span><strong>${escapeHtml(String(value(data, keys)))}</strong></div>`).join("")}
       </div>
       ${(data.snapshot_block || data.snapshot_time) ? `<div class="airdrop-result-header"><span>${text("snapshotBlock")}: ${escapeHtml(data.snapshot_block || "-")}</span><span>${text("snapshotTime")}: ${escapeHtml(data.snapshot_time || "-")}</span></div>` : ""}
+      ${!data.ready ? `<p class="airdrop-query-note is-warning">${text("pendingFinalization")}</p>` : ""}
+      ${actionPanel(data, selectedNetwork, accountName)}
     `;
     result.hidden = false;
+    bindClaimActions(result, selectedNetwork, accountName);
+  };
+
+  const postJson = async (url, body) => {
+    const response = await fetch(new URL(url, window.location.href), {
+      method: "POST",
+      headers: {"content-type": "application/json", Accept: "application/json"},
+      body: JSON.stringify(body)
+    });
+    const payload = await response.json().catch(() => ({}));
+    if (!response.ok) {
+      const message = payload.error && payload.error.base && payload.error.base[0];
+      throw new Error(message || `HTTP ${response.status}`);
+    }
+    return payload;
+  };
+
+  const bindClaimActions = (root, selectedNetwork, accountName) => {
+    const panel = root.querySelector("[data-airdrop-claim-panel]");
+    if (!panel) return;
+    const target = root.querySelector("#airdrop-target-account");
+    const challengeBox = root.querySelector("[data-airdrop-challenge-box]");
+    const challengeOutput = root.querySelector("[data-airdrop-challenge]");
+    const signedMessage = root.querySelector("#airdrop-signed-message");
+    const actionStatus = root.querySelector("[data-airdrop-action-status]");
+    root.querySelector('[data-airdrop-action="challenge"]')?.addEventListener("click", async () => {
+      if (!target.value.trim()) {
+        actionStatus.textContent = text("targetRequired");
+        return;
+      }
+      try {
+        actionStatus.textContent = text("loading");
+        const payload = await postJson(config.airdropChallengeUrl, {
+          network: selectedNetwork,
+          account: accountName,
+          target_dfs_account: target.value.trim()
+        });
+        challengeOutput.textContent = payload.challenge;
+        challengeBox.hidden = false;
+        actionStatus.textContent = text("challengeReady");
+      } catch (_) {
+        actionStatus.textContent = text("challengeFailed");
+      }
+    });
+    root.querySelector('[data-airdrop-action="verify"]')?.addEventListener("click", async () => {
+      if (!signedMessage.value.trim()) {
+        actionStatus.textContent = text("required");
+        return;
+      }
+      try {
+        actionStatus.textContent = text("loading");
+        await postJson(config.airdropVerifyUrl, {
+          network: selectedNetwork,
+          account: accountName,
+          signed_message: signedMessage.value.trim()
+        });
+        actionStatus.textContent = text("verified");
+      } catch (_) {
+        actionStatus.textContent = text("verifyFailed");
+      }
+    });
   };
 
   const query = async (selectedNetwork, accountName) => {
-    const endpoint = config.airdropApiUrl;
-    if (!endpoint) {
+    if (!config.airdropApiUrl) {
       setStatus(text("unavailable"), "error");
       result.hidden = true;
       return;
     }
-    const url = new URL(endpoint, window.location.href);
+    const url = new URL(config.airdropApiUrl, window.location.href);
     url.searchParams.set("network", selectedNetwork);
     url.searchParams.set("account", accountName);
     setStatus(text("loading"));
     result.hidden = true;
     try {
-      const response = await fetch(url, { headers: { Accept: "application/json" } });
+      const response = await fetch(url, {headers: {Accept: "application/json"}});
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
-      const payload = await response.json();
-      const data = payload.result || payload;
-      if (!data || data.found === false || data.total === undefined && !data.eligible_bts) {
+      const data = await response.json();
+      if (!data || data.found === false) {
         setStatus(text("notFound"), "error");
         return;
       }
-      renderResult(data, selectedNetwork);
+      renderResult(data, selectedNetwork, accountName);
       setStatus(text("found"), "success");
-    } catch (error) {
+    } catch (_) {
       setStatus(text("failed"), "error");
     }
   };
 
   badge.textContent = config.airdropApiUrl ? text("snapshotStatus") : text("unavailable");
-  queryForm.addEventListener("submit", (event) => {
+  queryForm.addEventListener("submit", event => {
     event.preventDefault();
     const accountName = account.value.trim();
     if (!accountName) {

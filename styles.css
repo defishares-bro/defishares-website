@@ -710,6 +710,99 @@ code {
   font-size: 13px;
 }
 
+.airdrop-query-note.is-warning {
+  padding: 10px 12px;
+  border-left: 3px solid var(--gold);
+  background: #fff9ec;
+  color: #70511c;
+}
+
+.airdrop-claim-panel {
+  margin: 18px;
+  padding: 18px;
+  border: 1px solid #b8c8d8;
+  background: #f7fafc;
+}
+
+.airdrop-claim-panel.is-direct {
+  border-left: 4px solid #28704d;
+  background: #f1faf5;
+}
+
+.airdrop-claim-panel.is-review {
+  border-left: 4px solid var(--gold);
+  background: #fff9ec;
+}
+
+.airdrop-claim-panel p {
+  margin: 0 0 10px;
+}
+
+.airdrop-claim-panel .section-kicker {
+  margin-bottom: 6px;
+}
+
+.airdrop-action-note {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.airdrop-action-form {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 10px;
+  align-items: end;
+  margin-top: 14px;
+}
+
+.airdrop-action-form label,
+.airdrop-challenge-box label {
+  grid-column: 1 / -1;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.airdrop-action-form input,
+.airdrop-challenge-box textarea {
+  width: 100%;
+  border: 1px solid #aebac7;
+  padding: 9px 10px;
+  color: var(--ink);
+  background: white;
+}
+
+.airdrop-challenge-box {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+
+.airdrop-challenge-box pre {
+  overflow: auto;
+  margin: 10px 0;
+  padding: 12px;
+  white-space: pre-wrap;
+  word-break: break-word;
+  border: 1px solid #c8d2dc;
+  background: #eef2f5;
+  font: 13px/1.55 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+.airdrop-challenge-box textarea {
+  display: block;
+  min-height: 180px;
+  margin: 8px 0 12px;
+  resize: vertical;
+  font: 13px/1.5 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+.airdrop-action-status {
+  margin: 12px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
 .documents-section {
   padding: 38px 0;
   border-top: 1px solid var(--line);
@@ -1033,6 +1126,7 @@ code {
   .content-grid,
   .airdrop-section,
   .airdrop-query-form,
+  .airdrop-action-form,
   .airdrop-result-grid,
   .document-list,
   .notice-grid,
