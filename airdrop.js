@@ -218,7 +218,7 @@
       ["collateral", ["collateral", "collateral_display"]],
       ["liquidityPool", ["liquidity_pool", "liquidity_pool_display"]],
       ["openOrder", ["open_order", "open_order_display"]],
-      ["userLocked", ["user_locked", "user_locked_display"]],
+      ["userLocked", ["user_locked_unspecified", "user_locked", "user_locked_display"]],
       ["total", ["total", "eligible_bts", "eligible_nbs"]],
       ["dfsAmount", ["airdrop_dfs", "airdrop_dfs_nbs", "airdrop_dfs_bts"]]
     ];
