@@ -218,7 +218,12 @@
       ["collateral", ["collateral", "collateral_display"]],
       ["liquidityPool", ["liquidity_pool", "liquidity_pool_display"]],
       ["openOrder", ["open_order", "open_order_display"]],
-      ["userLocked", ["user_locked_unspecified", "user_locked", "user_locked_display"]],
+      // BTS exports store user-locked balances as bts_ticket_locked. The API
+      // exposes the same value as ticket_locked; keep legacy aliases for old
+      // NBS records and older backend responses.
+      ["userLocked", selectedNetwork === "bts"
+        ? ["bts_ticket_locked", "ticket_locked", "user_locked_unspecified", "user_locked", "user_locked_display"]
+        : ["nbs_user_locked", "user_locked_unspecified", "user_locked", "user_locked_display"]],
       ["total", ["total", "eligible_bts", "eligible_nbs"]],
       ["dfsAmount", ["airdrop_dfs", "airdrop_dfs_nbs", "airdrop_dfs_bts"]]
     ];
