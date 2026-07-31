@@ -350,9 +350,11 @@
     root.querySelector('[data-airdrop-action="verify"]')?.addEventListener("click", async () => {
       const signed = signedMessage.value.trim();
       const challenge = challengeOutput.textContent.trim();
-      const hasEnvelope = signed.startsWith("-----BEGIN BITSHARES SIGNED MESSAGE-----") &&
-        signed.endsWith("-----END BITSHARES SIGNED MESSAGE-----") &&
-        challenge && signed.includes(challenge);
+      const envelope = signed.match(/^-----BEGIN (BITSHARES|NewBitShares) SIGNED MESSAGE-----\r?\n/);
+      const envelopeName = envelope && envelope[1];
+      const hasEnvelope = Boolean(envelopeName &&
+        signed.endsWith(`-----END ${envelopeName} SIGNED MESSAGE-----`) &&
+        challenge && signed.includes(challenge));
       if (!hasEnvelope) {
         setActionStatus(text("invalidSignatureEnvelope"), "error");
         return;
