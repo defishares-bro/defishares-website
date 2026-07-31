@@ -809,6 +809,33 @@ code {
   font-size: 13px;
 }
 
+.airdrop-action-status.is-error,
+.airdrop-action-status.is-success {
+  margin-top: 14px;
+  padding: 10px 12px;
+  border: 1px solid;
+  border-radius: 6px;
+  font-weight: 700;
+}
+
+.airdrop-action-status.is-error {
+  color: #9d1c1c;
+  border-color: #e5a7a7;
+  background: #fff1f1;
+}
+
+.airdrop-action-status.is-success {
+  color: #17633a;
+  border-color: #9ed4b6;
+  background: #effaf3;
+}
+
+.airdrop-action-form input.is-invalid {
+  border-color: #c43a3a;
+  outline: 3px solid rgba(196, 58, 58, 0.14);
+  background: #fff7f7;
+}
+
 .documents-section {
   padding: 38px 0;
   border-top: 1px solid var(--line);

@@ -201,7 +201,7 @@
             <textarea id="airdrop-signed-message" rows="10" placeholder="${text("signaturePlaceholder")}"></textarea>
             <button class="button button-primary" type="button" data-airdrop-action="verify">${text("verifyButton")}</button>
           </div>
-          <p class="airdrop-action-status" data-airdrop-action-status>${statusLabel(claimStatus)}</p>
+          <p class="airdrop-action-status" data-airdrop-action-status role="status" aria-live="polite">${statusLabel(claimStatus)}</p>
         </section>`;
     }
     return `
@@ -284,6 +284,17 @@
     const copyChallenge = root.querySelector('[data-airdrop-action="copy-challenge"]');
     const signedMessage = root.querySelector("#airdrop-signed-message");
     const actionStatus = root.querySelector("[data-airdrop-action-status]");
+    const setActionStatus = (message, kind = "") => {
+      actionStatus.textContent = message;
+      actionStatus.className = `airdrop-action-status${kind ? ` is-${kind}` : ""}`;
+      actionStatus.setAttribute("role", kind === "error" ? "alert" : "status");
+      actionStatus.setAttribute("aria-live", kind === "error" ? "assertive" : "polite");
+    };
+    target.addEventListener("input", () => {
+      target.removeAttribute("aria-invalid");
+      target.classList.remove("is-invalid");
+      if (actionStatus.classList.contains("is-error")) setActionStatus("");
+    });
     let copyResetTimer;
     copyChallenge?.addEventListener("click", async () => {
       const challenge = challengeOutput.textContent.trim();
@@ -299,18 +310,23 @@
           copyChallenge.classList.remove("is-copied");
           copyChallenge.disabled = false;
         }, 1800);
-        actionStatus.textContent = text("copied");
+        setActionStatus(text("copied"), "success");
       } catch (_) {
-        actionStatus.textContent = text("challengeFailed");
+        setActionStatus(text("challengeFailed"), "error");
       }
     });
     root.querySelector('[data-airdrop-action="challenge"]')?.addEventListener("click", async () => {
       if (!target.value.trim()) {
-        actionStatus.textContent = text("targetRequired");
+        target.setAttribute("aria-invalid", "true");
+        target.classList.add("is-invalid");
+        setActionStatus(text("targetRequired"), "error");
+        target.focus();
         return;
       }
       try {
-        actionStatus.textContent = text("loading");
+        target.removeAttribute("aria-invalid");
+        target.classList.remove("is-invalid");
+        setActionStatus(text("loading"));
         const payload = await postJson(config.airdropChallengeUrl, {
           network: selectedNetwork,
           account: accountName,
@@ -318,11 +334,17 @@
         });
         challengeOutput.textContent = payload.challenge;
         challengeBox.hidden = false;
-        actionStatus.textContent = text("challengeReady");
+        setActionStatus(text("challengeReady"), "success");
       } catch (error) {
-        actionStatus.textContent = String(error.message || "").startsWith("Unknown DFS account:")
-          ? text("targetInvalid")
-          : (error.message || text("challengeFailed"));
+        const message = String(error.message || "");
+        if (message.startsWith("Unknown DFS account:")) {
+          target.setAttribute("aria-invalid", "true");
+          target.classList.add("is-invalid");
+          setActionStatus(text("targetInvalid"), "error");
+          target.focus();
+          return;
+        }
+        setActionStatus(message || text("challengeFailed"), "error");
       }
     });
     root.querySelector('[data-airdrop-action="verify"]')?.addEventListener("click", async () => {
@@ -332,19 +354,19 @@
         signed.endsWith("-----END BITSHARES SIGNED MESSAGE-----") &&
         challenge && signed.includes(challenge);
       if (!hasEnvelope) {
-        actionStatus.textContent = text("invalidSignatureEnvelope");
+        setActionStatus(text("invalidSignatureEnvelope"), "error");
         return;
       }
       try {
-        actionStatus.textContent = text("loading");
+        setActionStatus(text("loading"));
         await postJson(config.airdropVerifyUrl, {
           network: selectedNetwork,
           account: accountName,
           signed_message: signed
         });
-        actionStatus.textContent = text("verified");
+        setActionStatus(text("verified"), "success");
       } catch (_) {
-        actionStatus.textContent = text("verifyFailed");
+        setActionStatus(text("verifyFailed"), "error");
       }
     });
   };
