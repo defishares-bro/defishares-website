@@ -50,6 +50,9 @@
       challengeReady: "Challenge created. It expires soon and can be used once.",
       targetInvalid: "This DFS receiving account does not exist. Register it first, then try again.",
       verified: "Identity verified. The claim is waiting for manual transfer.",
+      verifiedAutomatic: "Identity verified and the airdrop was sent automatically.",
+      automaticPending: "Identity verified; automatic transfer is pending.",
+      automaticUnknown: "Identity verified; the transfer result requires reconciliation.",
       claimStatus: "Claim status",
       statusNotStarted: "Not started",
       statusChallenge: "Challenge issued",
@@ -110,6 +113,9 @@
       challengeReady: "挑战已生成，请尽快签名；挑战只能使用一次。",
       targetInvalid: "这个 DFS 接收账户不存在，请先注册账户后再试。",
       verified: "身份验证成功，等待人工转账。",
+      verifiedAutomatic: "身份验证成功，空投已自动发放。",
+      automaticPending: "身份验证成功，自动转账正在等待处理。",
+      automaticUnknown: "身份验证成功，但转账结果需要核对。",
       claimStatus: "领取状态",
       statusNotStarted: "未开始",
       statusChallenge: "已生成挑战",
@@ -361,12 +367,20 @@
       }
       try {
         setActionStatus(text("loading"));
-        await postJson(config.airdropVerifyUrl, {
+        const payload = await postJson(config.airdropVerifyUrl, {
           network: selectedNetwork,
           account: accountName,
           signed_message: signed
         });
-        setActionStatus(text("verified"), "success");
+        if (payload.auto_transfer === "transferred" || payload.status === "transferred") {
+          setActionStatus(text("verifiedAutomatic"), "success");
+        } else if (payload.auto_transfer === "unknown" || payload.status === "transfer_unknown") {
+          setActionStatus(text("automaticUnknown"), "error");
+        } else if (payload.auto_transfer === "pending") {
+          setActionStatus(text("automaticPending"), "success");
+        } else {
+          setActionStatus(text("verified"), "success");
+        }
       } catch (_) {
         setActionStatus(text("verifyFailed"), "error");
       }
