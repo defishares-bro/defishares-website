@@ -243,6 +243,121 @@ input {
   border-right: 1px solid rgb(255 255 255 / 24%);
 }
 
+.launch-countdown {
+  color: #f6f8fb;
+  background:
+    linear-gradient(110deg, rgb(24 42 67 / 98%), rgb(32 67 103 / 98%)),
+    repeating-linear-gradient(90deg, rgb(255 255 255 / 7%) 0 1px, transparent 1px 48px);
+  border-bottom: 4px solid var(--gold);
+}
+
+.launch-countdown[hidden] {
+  display: none;
+}
+
+.launch-countdown-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(420px, 0.92fr);
+  align-items: center;
+  gap: 44px;
+  min-height: 252px;
+  padding: 34px 0 32px;
+}
+
+.launch-countdown-copy {
+  max-width: 680px;
+}
+
+.launch-kicker {
+  margin: 0 0 7px;
+  color: #dcbf87;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.launch-countdown h2 {
+  margin: 0;
+  color: #fff;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(28px, 3.4vw, 44px);
+  line-height: 1.1;
+}
+
+.launch-countdown-copy > p:not(.launch-kicker):not(.launch-note) {
+  max-width: 620px;
+  margin: 14px 0 0;
+  color: #e0e8f2;
+  font-size: 17px;
+}
+
+.launch-note {
+  margin: 15px 0 0;
+  color: #b9c9db;
+  font-size: 13px;
+}
+
+.launch-countdown-clock {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
+  align-items: start;
+  min-width: 0;
+  padding: 22px 24px 17px;
+  border: 1px solid rgb(255 255 255 / 23%);
+  background: rgb(8 23 42 / 28%);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 8%);
+}
+
+.countdown-unit {
+  min-width: 70px;
+  text-align: center;
+}
+
+.countdown-unit strong {
+  display: block;
+  color: #fff;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font-size: clamp(30px, 4vw, 52px);
+  font-weight: 700;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.countdown-unit span {
+  display: block;
+  margin-top: 9px;
+  color: #c5d3e2;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+
+.countdown-separator {
+  padding-top: 3px;
+  color: #d6b56f;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 34px;
+  line-height: 1;
+}
+
+.launch-target {
+  grid-column: 1 / -1;
+  margin: 21px 0 0;
+  padding-top: 12px;
+  border-top: 1px solid rgb(255 255 255 / 18%);
+  color: #b9c9db;
+  font-size: 12px;
+  text-align: center;
+}
+
+.launch-target strong {
+  color: #f0d8a7;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font-weight: 700;
+}
+
 .status-strip,
 main {
   background: var(--paper);
@@ -1154,6 +1269,7 @@ code {
   }
 
   .status-grid,
+  .launch-countdown-inner,
   .hero-section,
   .two-column,
   .content-grid,
@@ -1180,6 +1296,10 @@ code {
   .tabs button {
     justify-content: flex-start;
     text-align: left;
+  }
+
+  .launch-countdown-inner {
+    gap: 24px;
   }
 }
 
@@ -1220,6 +1340,35 @@ code {
 
   .action-row .button {
     width: 100%;
+  }
+
+  .launch-countdown-inner {
+    padding: 26px 0 25px;
+  }
+
+  .launch-countdown h2 {
+    font-size: 30px;
+  }
+
+  .launch-countdown-clock {
+    padding: 18px 10px 14px;
+  }
+
+  .countdown-unit {
+    min-width: 0;
+  }
+
+  .countdown-unit strong {
+    font-size: 27px;
+  }
+
+  .countdown-unit span {
+    font-size: 9px;
+    letter-spacing: 0;
+  }
+
+  .countdown-separator {
+    font-size: 24px;
   }
 
   .directory-grid {

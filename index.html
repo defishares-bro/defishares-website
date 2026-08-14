@@ -70,6 +70,43 @@
       </nav>
     </header>
 
+    <section class="launch-countdown" id="mainnet-countdown" aria-labelledby="mainnet-countdown-title">
+      <div class="page-shell launch-countdown-inner">
+        <div class="launch-countdown-copy">
+          <p class="launch-kicker" data-i18n="mainnetLaunchKicker">Mainnet Launch</p>
+          <h2 id="mainnet-countdown-title" data-i18n="mainnetCountdownTitle">DefiShares Mainnet Launch Countdown</h2>
+          <p data-i18n="mainnetCountdownBody">
+            The DefiShares mainnet is scheduled to open at 00:00:00 on August 15, 2026 (UTC+0).
+          </p>
+          <p class="launch-note" data-i18n="mainnetCountdownNote">
+            The official website remains accessible during the countdown. Verify official URLs before connecting a wallet.
+          </p>
+        </div>
+        <div class="launch-countdown-clock" aria-live="polite" aria-atomic="true">
+          <div class="countdown-unit">
+            <strong data-countdown="days">00</strong>
+            <span data-i18n="countdownDays">Days</span>
+          </div>
+          <div class="countdown-separator" aria-hidden="true">:</div>
+          <div class="countdown-unit">
+            <strong data-countdown="hours">00</strong>
+            <span data-i18n="countdownHours">Hours</span>
+          </div>
+          <div class="countdown-separator" aria-hidden="true">:</div>
+          <div class="countdown-unit">
+            <strong data-countdown="minutes">00</strong>
+            <span data-i18n="countdownMinutes">Minutes</span>
+          </div>
+          <div class="countdown-separator" aria-hidden="true">:</div>
+          <div class="countdown-unit">
+            <strong data-countdown="seconds">00</strong>
+            <span data-i18n="countdownSeconds">Seconds</span>
+          </div>
+          <p class="launch-target"><span data-i18n="mainnetCountdownTarget">Target time</span> · <strong>2026-08-15 00:00 UTC+0</strong></p>
+        </div>
+      </div>
+    </section>
+
     <main id="main-content">
       <section class="status-strip" id="status" aria-label="Chain snapshot">
         <div class="page-shell status-grid">
@@ -321,6 +358,6 @@
     </footer>
 
     <script src="./site-config.js?v=3"></script>
-    <script src="./script.js?v=9"></script>
+    <script src="./script.js?v=10"></script>
   </body>
 </html>

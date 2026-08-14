@@ -52,6 +52,16 @@
       updated: "Updated",
       recentDevelopments: "Recent Developments",
       projectNotices: "Project Notices",
+      mainnetLaunchKicker: "Mainnet Launch",
+      mainnetCountdownTitle: "DefiShares Mainnet Launch Countdown",
+      mainnetCountdownBody: "The DefiShares mainnet is scheduled to open at 00:00:00 on August 15, 2026 (UTC+0).",
+      mainnetCountdownNote: "The official website remains accessible during the countdown. Verify official URLs before connecting a wallet.",
+      mainnetCountdownTarget: "Target time",
+      countdownDays: "Days",
+      countdownHours: "Hours",
+      countdownMinutes: "Minutes",
+      countdownSeconds: "Seconds",
+      mainnetLiveStatus: "Mainnet Open",
       snapshotAnnouncementMeta: "Official announcement · 2026-08-05",
       snapshotAnnouncementTitle: "BitShares and New BitShares Blockchain Network Asset Snapshots Completed",
       snapshotAnnouncementBody: "DefiShares hereby announces that the asset snapshots of the BitShares blockchain network and the New BitShares blockchain network were generated as scheduled and completed successfully at 00:00:00 on August 5, 2026 (UTC+0). For clarity, the snapshots record the relevant account and asset states of the specified networks at the stated time. The opening of the DefiShares mainnet, as well as the launch arrangements for airdropped assets, will be announced separately in subsequent official notices. Users should rely on the DefiShares official website, official announcements, and verifiable on-chain records, and should never provide private keys, seed phrases, or wallet passwords to unverified pages.",
@@ -178,6 +188,16 @@
       updated: "更新",
       recentDevelopments: "最新动态",
       projectNotices: "项目公告",
+      mainnetLaunchKicker: "主网上线",
+      mainnetCountdownTitle: "DefiShares 主网上线倒计时",
+      mainnetCountdownBody: "DefiShares 主网计划于 2026 年 8 月 15 日 00:00:00（UTC+0）开放。",
+      mainnetCountdownNote: "倒计时期间官网仍可正常访问。连接钱包前，请务必核对官方 URL。",
+      mainnetCountdownTarget: "目标时间",
+      countdownDays: "天",
+      countdownHours: "时",
+      countdownMinutes: "分",
+      countdownSeconds: "秒",
+      mainnetLiveStatus: "主网已开放",
       snapshotAnnouncementMeta: "正式公告 · 2026年8月5日",
       snapshotAnnouncementTitle: "BitShares 与 New BitShares 区块链网络资产快照完成公告",
       snapshotAnnouncementBody: "DefiShares 现公告：BitShares 区块链网络与 New BitShares 区块链网络的资产快照已按计划于 2026 年 8 月 5 日 00:00:00（UTC+0）生成并成功完成。为明确起见，本公告所称“快照”是指在指定时间点记录相关网络的账户及资产状态。DefiShares 主网开放，以及空投资产的上线安排，将在后续官方通知中另行公布。请用户以 DefiShares 官方网站、官方公告和可验证的链上记录为准，并切勿向未经确认的页面提供私钥、助记词或钱包密码。",
@@ -302,6 +322,48 @@
     const key = node.getAttribute("data-link");
     if (config[key]) node.setAttribute("href", config[key]);
   });
+
+  const mainnetLaunchAt = Date.parse("2026-08-15T00:00:00Z");
+  const countdownSection = document.querySelector("#mainnet-countdown");
+  const countdownNodes = {
+    days: document.querySelector("[data-countdown='days']"),
+    hours: document.querySelector("[data-countdown='hours']"),
+    minutes: document.querySelector("[data-countdown='minutes']"),
+    seconds: document.querySelector("[data-countdown='seconds']")
+  };
+  const networkStatusNodes = document.querySelectorAll("[data-config='networkStatus']");
+
+  const setMainnetOpen = () => {
+    if (countdownSection) countdownSection.hidden = true;
+    networkStatusNodes.forEach((node) => {
+      node.textContent = dictionary.mainnetLiveStatus;
+    });
+  };
+
+  const updateMainnetCountdown = () => {
+    const remaining = mainnetLaunchAt - Date.now();
+    if (remaining <= 0) {
+      setMainnetOpen();
+      return false;
+    }
+
+    const totalSeconds = Math.floor(remaining / 1000);
+    const days = Math.floor(totalSeconds / 86400);
+    const hours = Math.floor((totalSeconds % 86400) / 3600);
+    const minutes = Math.floor((totalSeconds % 3600) / 60);
+    const seconds = totalSeconds % 60;
+    if (countdownNodes.days) countdownNodes.days.textContent = String(days).padStart(2, "0");
+    if (countdownNodes.hours) countdownNodes.hours.textContent = String(hours).padStart(2, "0");
+    if (countdownNodes.minutes) countdownNodes.minutes.textContent = String(minutes).padStart(2, "0");
+    if (countdownNodes.seconds) countdownNodes.seconds.textContent = String(seconds).padStart(2, "0");
+    return true;
+  };
+
+  if (updateMainnetCountdown()) {
+    const countdownTimer = window.setInterval(() => {
+      if (!updateMainnetCountdown()) window.clearInterval(countdownTimer);
+    }, 1000);
+  }
 
   const bannerButton = document.querySelector(".banner-toggle");
   const bannerDetails = document.querySelector("#banner-details");
