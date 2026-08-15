@@ -96,6 +96,7 @@
   const configTranslations = {
     zh: {
       "Public Testnet": "公共测试网",
+      "Mainnet Open": "主网已开放",
       "Rules pending": "规则待定",
       "3 seconds": "3 秒"
     }

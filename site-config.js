@@ -8,7 +8,8 @@ window.DEFI_SITE_CONFIG = {
   docsUrl: "../DefiShares项目官网板块与内容规划.md",
   whitepaperUrl: "#documents",
   riskUrl: "#risk",
-  networkStatus: "Public Testnet",
+  networkStatus: "Mainnet Open",
+  chainId: "7089639ad55d91ef53946f3fc4dc86ea5b8a4917edcfce6d3c39bc259657acb5",
   rpcUrl: "wss://api.defishares.org/ws/",
   coreAsset: "DFS",
   addressPrefix: "DFS",
@@ -18,7 +19,7 @@ window.DEFI_SITE_CONFIG = {
   airdropApiUrl: "https://api.defishares.org/airdrop/api/v1/airdrop/eligibility",
   airdropChallengeUrl: "https://api.defishares.org/airdrop/api/v1/airdrop/challenge",
   airdropVerifyUrl: "https://api.defishares.org/airdrop/api/v1/airdrop/verify",
-  lastUpdated: "2026-07-26",
+  lastUpdated: "2026-08-15",
   defaultLanguage: "en",
   supportedLanguages: ["en", "zh"]
 };
