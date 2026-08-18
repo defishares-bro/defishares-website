@@ -24,6 +24,7 @@ window.DEFI_SITE_CONFIG = {
   websiteUrl: "https://defishares.org",
   walletUrl: "https://wallet.defishares.org",
   explorerUrl: "https://explorer.defishares.org",
+  forumUrl: "https://forum.defishares.org/",
   githubUrl: "https://github.com/defishares",
   contactEmail: "contact@defishares.org",
   devEmail: "dev@defishares.org"

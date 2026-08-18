@@ -221,7 +221,7 @@ input {
 
 .nav-grid {
   display: grid;
-  grid-template-columns: repeat(8, 1fr);
+  grid-template-columns: repeat(9, 1fr);
 }
 
 .nav-grid a {

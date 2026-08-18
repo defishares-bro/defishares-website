@@ -40,6 +40,7 @@
       language: "Language:",
       wallet: "Wallet",
       explorer: "Explorer",
+      forum: "Forum",
       github: "GitHub",
       developer: "Developer",
       riskNotice: "Risk Notice",
@@ -72,6 +73,7 @@
       language: "语言：",
       wallet: "钱包",
       explorer: "浏览器",
+      forum: "论坛",
       github: "GitHub",
       developer: "开发者",
       riskNotice: "风险提示",
@@ -112,6 +114,7 @@
     ["gold", "GOLD Model", "./gold.html"],
     ["wallet", "Wallet", value("walletUrl")],
     ["explorer", "Explorer", value("explorerUrl")],
+    ["forum", "Forum", value("forumUrl")],
     ["airdrop", "Airdrop", "./airdrop.html"],
     ["developers", "Developers", "./developers.html"],
     ["documents", "Documents", "./documents.html"]
@@ -288,6 +291,7 @@
         <nav aria-label="Footer navigation">
           <a href="${esc(value("walletUrl"))}">${labels.wallet}</a>
           <a href="${esc(value("explorerUrl"))}">${labels.explorer}</a>
+          <a href="${esc(value("forumUrl"))}">${labels.forum}</a>
           <a href="${esc(value("githubUrl"))}">${labels.github}</a>
           <a href="mailto:${esc(value("contactEmail"))}">${labels.contact}</a>
           <a href="mailto:${esc(value("devEmail"))}">${labels.developer}</a>
