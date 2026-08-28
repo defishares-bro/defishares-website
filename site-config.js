@@ -3,7 +3,7 @@ window.DEFI_SITE_CONFIG = {
   walletUrl: "https://wallet.defishares.org",
   explorerUrl: "https://explorer.defishares.org",
   forumUrl: "https://forum.defishares.org/",
-  githubUrl: "https://github.com/defishares",
+  githubUrl: "https://github.com/defishares/defishares-core",
   contactEmail: "contact@defishares.org",
   devEmail: "dev@defishares.org",
   docsUrl: "../DefiShares项目官网板块与内容规划.md",
