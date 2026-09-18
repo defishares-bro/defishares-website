@@ -9,7 +9,7 @@
       content="DefiShares official information portal for DFS, GOLD-centered smart assets, wallet, explorer, airdrop, and technical documentation."
     />
     <link rel="icon" href="./assets/defishares-seal.png" />
-    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./styles.css?v=5" />
   </head>
   <body>
     <div class="official-banner" role="note">
@@ -65,6 +65,7 @@
           <a href="#" data-link="explorerUrl" data-i18n="navExplorer">Explorer</a>
           <a href="#" data-link="forumUrl" data-i18n="navForum">Forum</a>
           <a href="./airdrop.html" data-i18n="navAirdrop">Airdrop</a>
+          <a href="./supply.html" data-i18n="navSupply">Supply &amp; Audit</a>
           <a href="./developers.html" data-i18n="navDevelopers">Developers</a>
           <a href="./documents.html" data-i18n="navDocuments">Documents</a>
         </div>
@@ -162,11 +163,11 @@
             </div>
             <div>
               <dt data-i18n="airdrop">Airdrop</dt>
-              <dd data-config="airdropStatus">Rules pending</dd>
+              <dd data-config="airdropStatus">BTS 2,468,954,844.73158 · NBS 300,000,000 DFS</dd>
             </div>
             <div>
               <dt data-i18n="updated">Updated</dt>
-              <dd data-config="lastUpdated">2026-07-11</dd>
+              <dd data-config="lastUpdated">2026-09-18</dd>
             </div>
           </dl>
         </aside>
@@ -277,30 +278,7 @@
         </article>
       </section>
 
-      <section class="page-shell airdrop-section" id="airdrop">
-        <div>
-          <p class="section-kicker" data-i18n="communityDistribution">Community Distribution</p>
-          <h2 data-i18n="dfsAirdrop">DFS Airdrop</h2>
-          <p data-i18n="airdropBody">
-            The airdrop page will present allocation, eligibility, snapshot time, claim window, distribution account,
-            and chain-verifiable records once the project team publishes final rules.
-          </p>
-        </div>
-        <div class="airdrop-table" role="table" aria-label="Airdrop fields">
-          <div role="row">
-            <strong role="cell" data-i18n="status">Status</strong>
-            <span role="cell" data-config="airdropStatus">Rules pending</span>
-          </div>
-          <div role="row">
-            <strong role="cell" data-i18n="requiredFields">Required fields</strong>
-            <span role="cell" data-i18n="requiredFieldsValue">Allocation, eligibility, snapshot, claim window, distribution account, audit records</span>
-          </div>
-          <div role="row">
-            <strong role="cell" data-i18n="securityNote">Security note</strong>
-            <span role="cell" data-i18n="securityNoteValue">Never enter private keys, seed phrases, or wallet passwords on an airdrop page.</span>
-          </div>
-        </div>
-      </section>
+      <section class="page-shell airdrop-rules-section" id="airdrop" data-airdrop-rules></section>
 
       <section class="page-shell documents-section" id="documents">
         <div class="section-heading-row">
@@ -363,7 +341,8 @@
       </div>
     </footer>
 
-    <script src="./site-config.js?v=6"></script>
-    <script src="./script.js?v=12"></script>
+    <script src="./site-config.js?v=10"></script>
+    <script src="./script.js?v=13"></script>
+    <script src="./airdrop-rules.js?v=5"></script>
   </body>
 </html>

@@ -31,6 +31,7 @@
       navExplorer: "Explorer",
       navForum: "Forum",
       navAirdrop: "Airdrop",
+      navSupply: "Supply & Audit",
       navDevelopers: "Developers",
       navDocuments: "Documents",
       footerPortal: "DefiShares Official Information Portal",
@@ -169,6 +170,7 @@
       navExplorer: "浏览器",
       navForum: "论坛",
       navAirdrop: "空投",
+      navSupply: "供应与审计",
       navDevelopers: "开发者",
       navDocuments: "文档",
       footerPortal: "DefiShares 官方信息门户",
@@ -294,7 +296,7 @@
     zh: {
       "Public Testnet": dictionary.publicTestnet,
       "Mainnet Open": dictionary.mainnetLiveStatus,
-      "Rules pending": dictionary.rulesPending,
+        "BTS 2,468,954,844.73158 · NBS 300,000,000 DFS": "BTS 2,468,954,844.73158 · NBS 300,000,000 DFS",
       "3 seconds": dictionary.seconds3
     }
   };

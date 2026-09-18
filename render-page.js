@@ -50,8 +50,9 @@
         gold: "GOLD Model",
         wallet: "Wallet",
         explorer: "Explorer",
-        airdrop: "Airdrop",
-        developers: "Developers",
+      airdrop: "Airdrop",
+      supply: "Supply & Audit",
+      developers: "Developers",
         documents: "Documents"
       }
     },
@@ -83,8 +84,9 @@
         gold: "GOLD 模型",
         wallet: "钱包",
         explorer: "浏览器",
-        airdrop: "空投",
-        developers: "开发者",
+      airdrop: "空投",
+      supply: "供应与审计",
+      developers: "开发者",
         documents: "文档"
       }
     }
@@ -99,7 +101,7 @@
     zh: {
       "Public Testnet": "公共测试网",
       "Mainnet Open": "主网已开放",
-      "Rules pending": "规则待定",
+      "BTS 2,468,954,844.73158 · NBS 300,000,000 DFS": "BTS 2,468,954,844.73158 · NBS 300,000,000 DFS",
       "3 seconds": "3 秒"
     }
   };
@@ -116,6 +118,7 @@
     ["explorer", "Explorer", value("explorerUrl")],
     ["forum", "Forum", value("forumUrl")],
     ["airdrop", "Airdrop", "./airdrop.html"],
+    ["supply", "Supply & Audit", "./supply.html"],
     ["developers", "Developers", "./developers.html"],
     ["documents", "Documents", "./documents.html"]
   ];
@@ -188,6 +191,9 @@
         <h2>${esc(page.title)}</h2>
       </section>
 
+      ${key === "airdrop" ? '<section class="page-shell airdrop-rules-section" id="rules" data-airdrop-rules></section>' : ""}
+      ${key === "supply" ? '<section class="page-shell airdrop-rules-section" id="supply-details" data-supply-details></section>' : ""}
+
       ${
         key === "airdrop"
           ? `
@@ -222,6 +228,8 @@
           : ""
       }
 
+      ${key !== "airdrop" ? `
+      ${key !== "supply" ? `
       <section class="page-shell about-intro">
         <div class="about-visual" aria-label="${esc(page.visualTitle)}">
           <img src="./assets/defishares-seal.png" alt="" />
@@ -238,8 +246,9 @@
           </ul>
         </div>
       </section>
+      ` : ""}
 
-      <section class="page-shell about-directory" aria-labelledby="directory-title">
+      ${key !== "supply" ? `<section class="page-shell about-directory" aria-labelledby="directory-title">
         <h2 id="directory-title">${esc(page.directoryTitle)}</h2>
         <div class="directory-grid">
           ${page.directory
@@ -253,9 +262,11 @@
             )
             .join("")}
         </div>
-      </section>
+      </section>` : ""}
 
-      <section class="page-shell about-governance">
+      ` : ""}
+
+      ${key !== "supply" ? `<section class="page-shell about-governance">
         <div>
           ${page.operationsTitle ? `<h2>${esc(page.operationsTitle)}</h2>` : ""}
           <p>${esc(page.operations)}</p>
@@ -275,11 +286,11 @@
               .join("")}
           </dl>
         </aside>
-      </section>
+      </section>` : ""}
 
-      <section class="page-shell last-update" id="risk">
+      ${key !== "supply" ? `<section class="page-shell last-update" id="risk">
         ${labels.lastUpdate}: <span>${esc(value("lastUpdated"))}</span>
-      </section>
+      </section>` : ""}
     </main>
 
     <footer class="site-footer" id="community">

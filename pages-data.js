@@ -141,11 +141,11 @@ window.DEFI_PAGES = {
   },
   airdrop: {
     title: "Airdrop",
-    description: "DefiShares airdrop information page.",
+    description: "DFS user airdrop allocations for BTS and NBS, with eligibility and claim lookup.",
     visualTitle: "DFS Airdrop",
     visualSubtitle: "Rules, eligibility, claims, and public records",
     introLead:
-      "The DefiShares airdrop page will publish official distribution rules when finalized.",
+      "The DefiShares airdrop page publishes the latest available BTS and NBS user allocation basis.",
     intro:
       "This page follows the same official notice structure: allocation, eligibility, snapshot time, claim window, distribution account, and chain-verifiable records should be presented clearly before any claim flow is promoted.",
     bullets: [
@@ -157,7 +157,7 @@ window.DEFI_PAGES = {
     ],
     directoryTitle: "Airdrop Information",
     directory: [
-      ["Allocation", "Total airdrop amount and relationship to DFS supply."],
+      ["Allocation", "BTS and NBS user airdrop amounts."],
       ["Eligibility", "Account, holder, community, or ecosystem qualification rules."],
       ["Snapshot", "Snapshot time and scope used to determine eligibility."],
       ["Claim Window", "Start time, end time, and claim status."],
@@ -166,9 +166,36 @@ window.DEFI_PAGES = {
     ],
     operationsTitle: "Claim Safety",
     operations:
-      "Airdrop pages must not ask for private keys, seed phrases, or wallet passwords. The official site should publish rules before users interact with any claim flow.",
+      "Use the official allocation query to check your snapshot entitlement and claim route. Keep private keys and wallet passwords in your wallet; never share them with anyone.",
     facts: [
       ["Airdrop status", "airdropStatus"],
+      ["Network", "networkStatus"],
+      ["Explorer", "explorerUrl"],
+      ["Updated", "lastUpdated"]
+    ]
+  },
+  supply: {
+    title: "Supply & Audit",
+    description: "DefiShares supply allocation, genesis, special rewards, and audit basis.",
+    visualTitle: "Supply & Audit",
+    visualSubtitle: "Genesis supply and public verification references",
+    introLead: "This page consolidates the latest available supply allocation basis for public verification.",
+    intro: "The figures are grouped by source allocation, supply summary, and special reward category for public reference.",
+    bullets: [
+      "compare BTS and NBS airdrop allocations with genesis records;",
+      "inspect the founder team and special reward pool;",
+      "cross-check the formal August 5 and August 6, 2026 batches."
+    ],
+    directoryTitle: "Verification Scope",
+    directory: [
+      ["Genesis Supply", "Initial, maximum, and initially unissued DFS supply."],
+      ["Airdrop Allocation", "BTS and NBS user airdrop allocations."],
+      ["Special Rewards", "Founder, co-founder, technical, and historical community allocations."],
+      ["Public Data", "Published allocation figures and category totals."]
+    ],
+    operationsTitle: "Verification Note",
+    operations: "The figures are grouped by allocation category for clear public reference.",
+    facts: [
       ["Network", "networkStatus"],
       ["Explorer", "explorerUrl"],
       ["Updated", "lastUpdated"]
@@ -389,10 +416,10 @@ window.DEFI_PAGES_I18N = {
     },
     airdrop: {
       title: "空投",
-      description: "DefiShares 空投信息页面。",
+      description: "DFS BTS、NBS 用户空投额度、资格和领取查询。",
       visualTitle: "DFS 空投",
       visualSubtitle: "规则、资格、领取与公共记录",
-      introLead: "DefiShares 空投页将在规则最终确认后发布官方分发规则。",
+      introLead: "DefiShares 空投页展示当前可用的 BTS 和 NBS 用户分配口径。",
       intro:
         "本页沿用官方公告结构：在推广任何领取流程前，应清楚展示分配额度、资格、快照时间、领取窗口、分发账户和链上可验证记录。",
       bullets: [
@@ -404,7 +431,7 @@ window.DEFI_PAGES_I18N = {
       ],
       directoryTitle: "空投信息",
       directory: [
-        ["分配额度", "空投总量及其与 DFS 供应量的关系。"],
+        ["分配额度", "BTS 和 NBS 用户空投额度。"],
         ["资格", "账户、持仓、社区或生态资格规则。"],
         ["快照", "用于确定资格的快照时间和范围。"],
         ["领取窗口", "开始时间、结束时间和领取状态。"],
@@ -413,9 +440,36 @@ window.DEFI_PAGES_I18N = {
       ],
       operationsTitle: "领取安全",
       operations:
-        "空投页面不得要求用户输入私钥、助记词或钱包密码。官方站点应在用户进入任何领取流程前先公布规则。",
+        "通过官方额度查询核对快照分配和领取路径。请在钱包内保管私钥与密码，不要向任何人提供。",
       facts: [
         ["空投状态", "airdropStatus"],
+        ["网络", "networkStatus"],
+        ["浏览器", "explorerUrl"],
+        ["更新", "lastUpdated"]
+      ]
+    },
+    supply: {
+      title: "供应与审计",
+      description: "DefiShares 供应分配、创世文件、特殊奖励和审计依据。",
+      visualTitle: "供应与审计",
+      visualSubtitle: "创世供应与公开核验依据",
+      introLead: "本页集中展示当前可用的供应分配口径，便于对外发布前核验。",
+      intro: "页面按来源分配、供应摘要和特殊奖励类别展示公开数据。",
+      bullets: [
+        "核对 BTS、NBS 空投分配与 genesis 记录；",
+        "检查创始团队与特殊奖励池；",
+        "复核 2026 年 8 月 5 日和 8 月 6 日正式批次。"
+      ],
+      directoryTitle: "核验范围",
+      directory: [
+        ["创世供应", "DFS 初始供应、最大供应和初始未发行量。"],
+        ["空投分配", "BTS 和 NBS 用户空投分配。"],
+        ["特殊奖励", "创始人、联合创始人、技术开发和社区历史贡献分配。"],
+        ["公开数据", "已发布的分配金额和类别合计。"]
+      ],
+      operationsTitle: "核验说明",
+      operations: "页面按分配类别整理数据，便于公开查看。",
+      facts: [
         ["网络", "networkStatus"],
         ["浏览器", "explorerUrl"],
         ["更新", "lastUpdated"]

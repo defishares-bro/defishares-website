@@ -16,11 +16,11 @@ window.DEFI_SITE_CONFIG = {
   addressPrefix: "DFS",
   defaultMarket: "GOLD_DFS",
   blockInterval: "3 seconds",
-  airdropStatus: "Rules pending",
+  airdropStatus: "BTS 2,468,954,844.73158 · NBS 300,000,000 DFS",
   airdropApiUrl: "https://api.defishares.org/airdrop/api/v1/airdrop/eligibility",
   airdropChallengeUrl: "https://api.defishares.org/airdrop/api/v1/airdrop/challenge",
   airdropVerifyUrl: "https://api.defishares.org/airdrop/api/v1/airdrop/verify",
-  lastUpdated: "2026-08-15",
+  lastUpdated: "2026-09-18",
   defaultLanguage: "en",
   supportedLanguages: ["en", "zh"]
 };
