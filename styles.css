@@ -1514,3 +1514,28 @@ code {
   .wallet-qr { flex-direction: row; text-align: left; }
   .wallet-qr img { width: 100px; height: 100px; flex-basis: 100px; }
 }
+
+/* Attributed first-post quotations from the official forum */
+.forum-articles { padding-top: 24px; padding-bottom: 32px; }
+.forum-articles > h3 { margin: 0 0 12px; font-size: 26px; }
+.forum-index-intro { margin-bottom: 24px; color: var(--muted); }
+.forum-article-list { border-top: 1px solid var(--line); }
+.forum-article-entry { padding: 24px 0; border-bottom: 1px solid var(--line); }
+.forum-article-entry h4 { margin: 0 0 12px; font-size: clamp(19px, 2vw, 23px); line-height: 1.5; }
+.forum-article-entry p { margin: 0 0 14px; font-size: 14px; color: var(--muted); overflow-wrap: anywhere; }
+.forum-article { padding-top: 24px; padding-bottom: 40px; }
+.forum-citation { padding: 20px 24px; margin-bottom: 32px; border-left: 4px solid var(--blue); background: var(--wash); font-size: 15px; overflow-wrap: anywhere; }
+.forum-citation p { margin: 0 0 8px; }
+.forum-username { color: var(--muted); }
+.forum-original-link { display: inline-block; margin-top: 4px; }
+.forum-article-body { max-width: 920px; font-size: 18px; line-height: 1.95; overflow-wrap: anywhere; }
+.forum-article-body p { margin: 0 0 1.35em; }
+.forum-article-body strong { color: var(--blue); }
+.forum-article-body ol { padding-left: 1.6em; margin: 0 0 1.35em; }
+.forum-article-body li { margin-bottom: 0.9em; }
+.forum-article-return { margin-top: 32px; padding-top: 20px; border-top: 1px solid var(--line); }
+@media (max-width: 620px) {
+  .forum-citation { padding: 16px; }
+  .forum-article-body { font-size: 17px; line-height: 1.9; }
+  .interior-title h2 { overflow-wrap: anywhere; }
+}

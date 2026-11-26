@@ -13,7 +13,11 @@
   document.documentElement.lang = lang === "zh" ? "zh-CN" : "en";
   const pages = pageGroups[lang] || pageGroups.en || {};
   const key = document.body.getAttribute("data-page");
-  const page = pages[key];
+  const article = (window.DEFI_FORUM_ARTICLES || {})[key];
+  const page = article ? {
+    title: article.title,
+    description: `${article.title} · DefiShares forum · ${article.author}`
+  } : pages[key];
   if (!page) return;
 
   const fallbackValues = {
@@ -97,6 +101,28 @@
       .replaceAll("<", "&lt;")
       .replaceAll(">", "&gt;")
       .replaceAll('"', "&quot;");
+  const articleLabels = lang === "zh" ? {
+    heading: "论坛文章", intro: "引用自 DefiShares 官方论坛的项目理念与设计说明。",
+    source: "引用来源", forum: "DefiShares 官方论坛", author: "原作者",
+    published: "原文发布", original: "查看论坛原帖", back: "返回文档",
+    read: "阅读全文", quoted: "官网引用日期"
+  } : {
+    heading: "Forum Articles", intro: "Project perspectives and design notes quoted from the official DefiShares forum.",
+    source: "Source", forum: "Official DefiShares Forum", author: "Original author",
+    published: "Originally published", original: "View original forum post", back: "Back to documents",
+    read: "Read article", quoted: "Quoted on this website"
+  };
+  const articleDate = (date) => new Intl.DateTimeFormat("en-CA", {
+    timeZone: "Asia/Shanghai", year: "numeric", month: "2-digit", day: "2-digit"
+  }).format(new Date(date));
+  const forumArticles = Object.entries(window.DEFI_FORUM_ARTICLES || {}).sort((a, b) => b[1].publishedAt.localeCompare(a[1].publishedAt));
+  const citation = (post) => `
+    <aside class="forum-citation" aria-label="${articleLabels.source}">
+      <p>${articleLabels.source}：<a href="${esc(post.sourceUrl)}" target="_blank" rel="noopener noreferrer">${articleLabels.forum}</a></p>
+      <p>${articleLabels.author}：<a href="${esc(post.authorUrl)}" target="_blank" rel="noopener noreferrer">${esc(post.authorName || post.author)}</a> <span class="forum-username">(@${esc(post.author)})</span></p>
+      <p>${articleLabels.published}：<time datetime="${esc(post.publishedAt)}">${articleDate(post.publishedAt)}</time> · ${articleLabels.quoted}：${esc(post.quotedAt)}</p>
+      <a class="forum-original-link" href="${esc(post.sourceUrl)}" target="_blank" rel="noopener noreferrer">${articleLabels.original}</a>
+    </aside>`;
   const configTranslations = {
     zh: {
       "Public Testnet": "公共测试网",
@@ -176,7 +202,7 @@
       <nav class="primary-nav" aria-label="Primary navigation">
         <div class="page-shell nav-grid">
           ${nav
-            .map(([navKey, label, href]) => `<a href="${href}"${navKey === key ? ' aria-current="page"' : ""}>${labels.nav[navKey] || label}</a>`)
+            .map(([navKey, label, href]) => `<a href="${href}"${navKey === (article ? "documents" : key) ? ' aria-current="page"' : ""}>${labels.nav[navKey] || label}</a>`)
             .join("")}
         </div>
       </nav>
@@ -185,11 +211,33 @@
     <main class="interior-main" id="main-content">
       <div class="page-shell breadcrumb">
         <a href="./index.html">${labels.home}</a>
+        ${article ? `<span aria-hidden="true"> / </span><a href="./documents.html?lang=${lang}#forum-articles">${labels.nav.documents}</a>` : ""}
       </div>
 
       <section class="page-shell interior-title">
         <h2>${esc(page.title)}</h2>
       </section>
+
+      ${key === "documents" ? `
+      <section class="page-shell forum-articles" id="forum-articles" aria-labelledby="forum-articles-heading">
+        <h3 id="forum-articles-heading">${articleLabels.heading}</h3>
+        <p class="forum-index-intro">${articleLabels.intro}</p>
+        <div class="forum-article-list">
+          ${forumArticles.map(([id, post]) => `
+          <article class="forum-article-entry">
+            <h4><a lang="zh-CN" href="./${id}.html?lang=${lang}">${esc(post.title)}</a></h4>
+            <p>${articleLabels.forum} · ${articleLabels.author}：${esc(post.authorName || post.author)} (@${esc(post.author)}) · <time datetime="${esc(post.publishedAt)}">${articleDate(post.publishedAt)}</time></p>
+            <a href="./${id}.html?lang=${lang}">${articleLabels.read}</a>
+          </article>`).join("")}
+        </div>
+      </section>` : ""}
+
+      ${article ? `
+      <article class="page-shell forum-article">
+        ${citation(article)}
+        <div class="forum-article-body" lang="zh-CN">${article.html}</div>
+        <nav class="forum-article-return"><a href="./documents.html?lang=${lang}#forum-articles">${articleLabels.back}</a></nav>
+      </article>` : ""}
 
       ${key === "airdrop" ? '<section class="page-shell airdrop-rules-section" id="rules" data-airdrop-rules></section>' : ""}
       ${key === "supply" ? '<section class="page-shell airdrop-rules-section" id="supply-details" data-supply-details></section>' : ""}
@@ -230,7 +278,7 @@
 
       ${key === "wallet" ? '<section class="page-shell wallet-center" data-wallet-center></section>' : ""}
 
-      ${!["airdrop", "wallet"].includes(key) ? `
+      ${!article && !["airdrop", "wallet"].includes(key) ? `
       ${key !== "supply" ? `
       <section class="page-shell about-intro">
         <div class="about-visual" aria-label="${esc(page.visualTitle)}">
@@ -268,7 +316,7 @@
 
       ` : ""}
 
-      ${!["supply", "wallet"].includes(key) ? `<section class="page-shell about-governance">
+      ${!article && !["supply", "wallet"].includes(key) ? `<section class="page-shell about-governance">
         <div>
           ${page.operationsTitle ? `<h2>${esc(page.operationsTitle)}</h2>` : ""}
           <p>${esc(page.operations)}</p>
@@ -290,7 +338,7 @@
         </aside>
       </section>` : ""}
 
-      ${key !== "supply" ? `<section class="page-shell last-update" id="risk">
+      ${!article && key !== "supply" ? `<section class="page-shell last-update" id="risk">
         ${labels.lastUpdate}: <span>${esc(value("lastUpdated"))}</span>
       </section>` : ""}
     </main>

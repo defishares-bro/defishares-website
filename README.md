@@ -60,3 +60,7 @@ Configure links in `site-config.js`:
 Publish the signed APK as a versioned release asset or on a download host, then update this metadata. Do not commit APK binaries to the website repository. The Android QR code opens the official wallet center; the Mobile Web QR code opens `https://app.defishares.org/`.
 
 Preview from this checkout with `python3 -m http.server 4175 --bind 127.0.0.1`, then open `/wallet.html?lang=en` or `/wallet.html?lang=zh`.
+
+## Forum articles
+
+The Documents page lists two forum articles, with original titles and first-post bodies preserved in `forum-articles.js`. The standalone pages are `forum-32.html` and `forum-30.html`. Each article identifies the official forum, original author, original publication date, quotation date and original post URL. Replies and discussion metadata are excluded. Original Chinese article content stays unchanged in both interface languages.
