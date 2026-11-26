@@ -1,6 +1,18 @@
 window.DEFI_SITE_CONFIG = {
   websiteUrl: "https://defishares.org",
   walletUrl: "https://wallet.defishares.org",
+  walletCenterUrl: "./wallet.html",
+  mobileWebWalletUrl: "https://app.defishares.org/",
+  walletSourceUrl: "https://github.com/defishares/moblie-wallet",
+  androidWallet: {
+    downloadUrl: "https://pub-7e32377248f5405dbe50267afea6a536.r2.dev/wallet-defishares-release.apk",
+    releaseUrl: "",
+    version: "1.0.4",
+    sizeBytes: 77449210,
+    minAndroid: "Android 7.0+",
+    releaseDate: "2026-11-26",
+    sha256: "e26930aa8656e8fcf3d6ec4cfa4e25e457e501312b51d40774b011af1bccc443"
+  },
   explorerUrl: "https://explorer.defishares.org",
   forumUrl: "https://forum.defishares.org/",
   githubUrl: "https://github.com/defishares/defishares-core",
@@ -20,7 +32,7 @@ window.DEFI_SITE_CONFIG = {
   airdropApiUrl: "https://api.defishares.org/airdrop/api/v1/airdrop/eligibility",
   airdropChallengeUrl: "https://api.defishares.org/airdrop/api/v1/airdrop/challenge",
   airdropVerifyUrl: "https://api.defishares.org/airdrop/api/v1/airdrop/verify",
-  lastUpdated: "2026-09-18",
+  lastUpdated: "2026-11-26",
   defaultLanguage: "en",
   supportedLanguages: ["en", "zh"]
 };

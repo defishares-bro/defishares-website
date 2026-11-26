@@ -70,8 +70,8 @@ window.DEFI_PAGES = {
     ]
   },
   wallet: {
-    title: "Wallet",
-    description: "Official DefiShares wallet access page.",
+    title: "Wallet Center",
+    description: "Official DefiShares wallets: Wallet UI, Android and Mobile Web.",
     visualTitle: "Web Wallet",
     visualSubtitle: "Official local-signing access point",
     introLead:
@@ -347,8 +347,8 @@ window.DEFI_PAGES_I18N = {
       ]
     },
     wallet: {
-      title: "钱包",
-      description: "DefiShares 官方钱包访问页。",
+      title: "钱包中心",
+      description: "DefiShares 官方钱包：Wallet UI、Android 钱包与 Mobile Web。",
       visualTitle: "网页钱包",
       visualSubtitle: "官方本地签名访问入口",
       introLead: "DefiShares 网页钱包是用户访问账户和资产操作的官方入口。",

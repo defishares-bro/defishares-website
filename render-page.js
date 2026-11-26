@@ -114,7 +114,7 @@
     ["about", "About", "./about.html"],
     ["features", "Features", "./features.html"],
     ["gold", "GOLD Model", "./gold.html"],
-    ["wallet", "Wallet", value("walletUrl")],
+    ["wallet", "Wallet", value("walletCenterUrl")],
     ["explorer", "Explorer", value("explorerUrl")],
     ["forum", "Forum", value("forumUrl")],
     ["airdrop", "Airdrop", "./airdrop.html"],
@@ -228,7 +228,9 @@
           : ""
       }
 
-      ${key !== "airdrop" ? `
+      ${key === "wallet" ? '<section class="page-shell wallet-center" data-wallet-center></section>' : ""}
+
+      ${!["airdrop", "wallet"].includes(key) ? `
       ${key !== "supply" ? `
       <section class="page-shell about-intro">
         <div class="about-visual" aria-label="${esc(page.visualTitle)}">
@@ -266,7 +268,7 @@
 
       ` : ""}
 
-      ${key !== "supply" ? `<section class="page-shell about-governance">
+      ${!["supply", "wallet"].includes(key) ? `<section class="page-shell about-governance">
         <div>
           ${page.operationsTitle ? `<h2>${esc(page.operationsTitle)}</h2>` : ""}
           <p>${esc(page.operations)}</p>
@@ -300,7 +302,7 @@
           <p>${labels.portal}</p>
         </div>
         <nav aria-label="Footer navigation">
-          <a href="${esc(value("walletUrl"))}">${labels.wallet}</a>
+          <a href="${esc(value("walletCenterUrl"))}">${labels.wallet}</a>
           <a href="${esc(value("explorerUrl"))}">${labels.explorer}</a>
           <a href="${esc(value("forumUrl"))}">${labels.forum}</a>
           <a href="${esc(value("githubUrl"))}">${labels.github}</a>

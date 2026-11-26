@@ -44,3 +44,19 @@ python3 -m http.server 4173 --directory website
 ```
 
 Then open `http://127.0.0.1:4173/`.
+
+## Wallet distribution center
+
+`wallet.html` presents Wallet UI, the Android APK and Mobile Web in English and Chinese. Navigation and homepage wallet links go through this page. `wallet-center.js` renders the platform cards and local SVG QR codes.
+
+Configure links in `site-config.js`:
+
+- `walletUrl`: existing Wallet UI address.
+- `walletCenterUrl`: local distribution page.
+- `mobileWebWalletUrl`: mobile browser wallet address.
+- `walletSourceUrl`: public mobile wallet source repository.
+- `androidWallet`: verified APK metadata (`downloadUrl`, `releaseUrl`, `version`, `sizeBytes`, `minAndroid`, `releaseDate`, `sha256`). An empty `downloadUrl` keeps the Android download button disabled.
+
+Publish the signed APK as a versioned release asset or on a download host, then update this metadata. Do not commit APK binaries to the website repository. The Android QR code opens the official wallet center; the Mobile Web QR code opens `https://app.defishares.org/`.
+
+Preview from this checkout with `python3 -m http.server 4175 --bind 127.0.0.1`, then open `/wallet.html?lang=en` or `/wallet.html?lang=zh`.
